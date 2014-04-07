@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D301D17818F3358300EEBCA5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D301D17718F3358300EEBCA5 /* libz.dylib */; };
+		D301D17A18F3358E00EEBCA5 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D301D17918F3358E00EEBCA5 /* libTestFlight.a */; };
+		D301D17C18F3359D00EEBCA5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D301D17B18F3359D00EEBCA5 /* AudioToolbox.framework */; };
+		D301D17E18F335B300EEBCA5 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D301D17D18F335B300EEBCA5 /* libsqlite3.0.dylib */; };
+		D301D18718F3377800EEBCA5 /* CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = D301D18118F3377800EEBCA5 /* CommonMethods.m */; };
+		D301D18818F3377800EEBCA5 /* GlobalData.m in Sources */ = {isa = PBXBuildFile; fileRef = D301D18418F3377800EEBCA5 /* GlobalData.m */; };
+		D301D18918F3377800EEBCA5 /* UIView+FindAndResignFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = D301D18618F3377800EEBCA5 /* UIView+FindAndResignFirstResponder.m */; };
+		D301D19918F3388500EEBCA5 /* EmulatorReadingParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D301D19318F3388500EEBCA5 /* EmulatorReadingParser.m */; };
+		D301D19A18F3388500EEBCA5 /* ScanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D301D19518F3388500EEBCA5 /* ScanManager.m */; };
+		D301D19B18F3388500EEBCA5 /* SensorReadingParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D301D19818F3388500EEBCA5 /* SensorReadingParser.m */; };
+		D32099E918F2AFA200C07C17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32099E818F2AFA100C07C17 /* Foundation.framework */; };
+		D32099EB18F2AFA200C07C17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32099EA18F2AFA200C07C17 /* CoreGraphics.framework */; };
+		D32099ED18F2AFA200C07C17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32099EC18F2AFA200C07C17 /* UIKit.framework */; };
+		D32099F318F2AFA200C07C17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D32099F118F2AFA200C07C17 /* InfoPlist.strings */; };
+		D32099F518F2AFA200C07C17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D32099F418F2AFA200C07C17 /* main.m */; };
+		D32099F918F2AFA200C07C17 /* WSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D32099F818F2AFA200C07C17 /* WSAppDelegate.m */; };
+		D3209A0418F2AFA200C07C17 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3209A0318F2AFA200C07C17 /* Images.xcassets */; };
+		D3209A0B18F2AFA200C07C17 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3209A0A18F2AFA200C07C17 /* XCTest.framework */; };
+		D3209A0C18F2AFA200C07C17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32099E818F2AFA100C07C17 /* Foundation.framework */; };
+		D3209A0D18F2AFA200C07C17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32099EC18F2AFA200C07C17 /* UIKit.framework */; };
+		D3209A1518F2AFA200C07C17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3209A1318F2AFA200C07C17 /* InfoPlist.strings */; };
+		D3209A1718F2AFA200C07C17 /* WoodshopMCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3209A1618F2AFA200C07C17 /* WoodshopMCTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D3209A0E18F2AFA200C07C17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D32099DD18F2AFA100C07C17 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D32099E418F2AFA100C07C17;
+			remoteInfo = WoodshopMC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D301D17418F3346800EEBCA5 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = TestFlight/TestFlight.h; sourceTree = "<group>"; };
+		D301D17518F3346800EEBCA5 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TestFlight+AsyncLogging.h"; path = "TestFlight/TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		D301D17618F3346800EEBCA5 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TestFlight+ManualSessions.h"; path = "TestFlight/TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		D301D17718F3358300EEBCA5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D301D17918F3358E00EEBCA5 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = WoodshopMC/libTestFlight.a; sourceTree = "<group>"; };
+		D301D17B18F3359D00EEBCA5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D301D17D18F335B300EEBCA5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		D301D18018F3377800EEBCA5 /* CommonMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMethods.h; path = Global/CommonMethods.h; sourceTree = "<group>"; };
+		D301D18118F3377800EEBCA5 /* CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonMethods.m; path = Global/CommonMethods.m; sourceTree = "<group>"; };
+		D301D18218F3377800EEBCA5 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Global.h; path = Global/Global.h; sourceTree = "<group>"; };
+		D301D18318F3377800EEBCA5 /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalData.h; path = Global/GlobalData.h; sourceTree = "<group>"; };
+		D301D18418F3377800EEBCA5 /* GlobalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalData.m; path = Global/GlobalData.m; sourceTree = "<group>"; };
+		D301D18518F3377800EEBCA5 /* UIView+FindAndResignFirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+FindAndResignFirstResponder.h"; path = "Global/UIView+FindAndResignFirstResponder.h"; sourceTree = "<group>"; };
+		D301D18618F3377800EEBCA5 /* UIView+FindAndResignFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+FindAndResignFirstResponder.m"; path = "Global/UIView+FindAndResignFirstResponder.m"; sourceTree = "<group>"; };
+		D301D19218F3388500EEBCA5 /* EmulatorReadingParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmulatorReadingParser.h; path = Scan/EmulatorReadingParser.h; sourceTree = "<group>"; };
+		D301D19318F3388500EEBCA5 /* EmulatorReadingParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmulatorReadingParser.m; path = Scan/EmulatorReadingParser.m; sourceTree = "<group>"; };
+		D301D19418F3388500EEBCA5 /* ScanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanManager.h; path = Scan/ScanManager.h; sourceTree = "<group>"; };
+		D301D19518F3388500EEBCA5 /* ScanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanManager.m; path = Scan/ScanManager.m; sourceTree = "<group>"; };
+		D301D19618F3388500EEBCA5 /* ScanManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanManagerDelegate.h; path = Scan/ScanManagerDelegate.h; sourceTree = "<group>"; };
+		D301D19718F3388500EEBCA5 /* SensorReadingParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SensorReadingParser.h; path = Scan/SensorReadingParser.h; sourceTree = "<group>"; };
+		D301D19818F3388500EEBCA5 /* SensorReadingParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SensorReadingParser.m; path = Scan/SensorReadingParser.m; sourceTree = "<group>"; };
+		D32099E518F2AFA100C07C17 /* WoodshopMC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoodshopMC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D32099E818F2AFA100C07C17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D32099EA18F2AFA200C07C17 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D32099EC18F2AFA200C07C17 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D32099F018F2AFA200C07C17 /* WoodshopMC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WoodshopMC-Info.plist"; sourceTree = "<group>"; };
+		D32099F218F2AFA200C07C17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D32099F418F2AFA200C07C17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D32099F618F2AFA200C07C17 /* WoodshopMC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WoodshopMC-Prefix.pch"; sourceTree = "<group>"; };
+		D32099F718F2AFA200C07C17 /* WSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSAppDelegate.h; sourceTree = "<group>"; };
+		D32099F818F2AFA200C07C17 /* WSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSAppDelegate.m; sourceTree = "<group>"; };
+		D3209A0318F2AFA200C07C17 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D3209A0918F2AFA200C07C17 /* WoodshopMCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoodshopMCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3209A0A18F2AFA200C07C17 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D3209A1218F2AFA200C07C17 /* WoodshopMCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WoodshopMCTests-Info.plist"; sourceTree = "<group>"; };
+		D3209A1418F2AFA200C07C17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D3209A1618F2AFA200C07C17 /* WoodshopMCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WoodshopMCTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D32099E218F2AFA100C07C17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D301D17E18F335B300EEBCA5 /* libsqlite3.0.dylib in Frameworks */,
+				D301D17C18F3359D00EEBCA5 /* AudioToolbox.framework in Frameworks */,
+				D301D17A18F3358E00EEBCA5 /* libTestFlight.a in Frameworks */,
+				D301D17818F3358300EEBCA5 /* libz.dylib in Frameworks */,
+				D32099EB18F2AFA200C07C17 /* CoreGraphics.framework in Frameworks */,
+				D32099ED18F2AFA200C07C17 /* UIKit.framework in Frameworks */,
+				D32099E918F2AFA200C07C17 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3209A0618F2AFA200C07C17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3209A0B18F2AFA200C07C17 /* XCTest.framework in Frameworks */,
+				D3209A0D18F2AFA200C07C17 /* UIKit.framework in Frameworks */,
+				D3209A0C18F2AFA200C07C17 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D301D17318F3345E00EEBCA5 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				D301D17418F3346800EEBCA5 /* TestFlight.h */,
+				D301D17518F3346800EEBCA5 /* TestFlight+AsyncLogging.h */,
+				D301D17618F3346800EEBCA5 /* TestFlight+ManualSessions.h */,
+			);
+			name = TestFlight;
+			sourceTree = "<group>";
+		};
+		D301D17F18F3376C00EEBCA5 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				D301D18018F3377800EEBCA5 /* CommonMethods.h */,
+				D301D18118F3377800EEBCA5 /* CommonMethods.m */,
+				D301D18218F3377800EEBCA5 /* Global.h */,
+				D301D18318F3377800EEBCA5 /* GlobalData.h */,
+				D301D18418F3377800EEBCA5 /* GlobalData.m */,
+				D301D18518F3377800EEBCA5 /* UIView+FindAndResignFirstResponder.h */,
+				D301D18618F3377800EEBCA5 /* UIView+FindAndResignFirstResponder.m */,
+			);
+			name = Global;
+			sourceTree = "<group>";
+		};
+		D301D18A18F337D900EEBCA5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D301D1B718F33B8100EEBCA5 /* CustomUI */,
+				D301D1AC18F33B4C00EEBCA5 /* Reports */,
+				D301D19C18F3397200EEBCA5 /* Record */,
+				D301D18B18F337F200EEBCA5 /* Main */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D301D18B18F337F200EEBCA5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		D301D19118F3387B00EEBCA5 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				D301D19218F3388500EEBCA5 /* EmulatorReadingParser.h */,
+				D301D19318F3388500EEBCA5 /* EmulatorReadingParser.m */,
+				D301D19418F3388500EEBCA5 /* ScanManager.h */,
+				D301D19518F3388500EEBCA5 /* ScanManager.m */,
+				D301D19618F3388500EEBCA5 /* ScanManagerDelegate.h */,
+				D301D19718F3388500EEBCA5 /* SensorReadingParser.h */,
+				D301D19818F3388500EEBCA5 /* SensorReadingParser.m */,
+			);
+			name = Scan;
+			sourceTree = "<group>";
+		};
+		D301D19C18F3397200EEBCA5 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Record;
+			sourceTree = "<group>";
+		};
+		D301D1AC18F33B4C00EEBCA5 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Reports;
+			sourceTree = "<group>";
+		};
+		D301D1B718F33B8100EEBCA5 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomUI;
+			sourceTree = "<group>";
+		};
+		D32099DC18F2AFA100C07C17 = {
+			isa = PBXGroup;
+			children = (
+				D32099EE18F2AFA200C07C17 /* WoodshopMC */,
+				D3209A1018F2AFA200C07C17 /* WoodshopMCTests */,
+				D32099E718F2AFA100C07C17 /* Frameworks */,
+				D32099E618F2AFA100C07C17 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D32099E618F2AFA100C07C17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D32099E518F2AFA100C07C17 /* WoodshopMC.app */,
+				D3209A0918F2AFA200C07C17 /* WoodshopMCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D32099E718F2AFA100C07C17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D301D17D18F335B300EEBCA5 /* libsqlite3.0.dylib */,
+				D301D17B18F3359D00EEBCA5 /* AudioToolbox.framework */,
+				D301D17918F3358E00EEBCA5 /* libTestFlight.a */,
+				D301D17718F3358300EEBCA5 /* libz.dylib */,
+				D32099E818F2AFA100C07C17 /* Foundation.framework */,
+				D32099EA18F2AFA200C07C17 /* CoreGraphics.framework */,
+				D32099EC18F2AFA200C07C17 /* UIKit.framework */,
+				D3209A0A18F2AFA200C07C17 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D32099EE18F2AFA200C07C17 /* WoodshopMC */ = {
+			isa = PBXGroup;
+			children = (
+				D301D19118F3387B00EEBCA5 /* Scan */,
+				D301D18A18F337D900EEBCA5 /* ViewControllers */,
+				D301D17F18F3376C00EEBCA5 /* Global */,
+				D301D17318F3345E00EEBCA5 /* TestFlight */,
+				D32099F718F2AFA200C07C17 /* WSAppDelegate.h */,
+				D32099F818F2AFA200C07C17 /* WSAppDelegate.m */,
+				D3209A0318F2AFA200C07C17 /* Images.xcassets */,
+				D32099EF18F2AFA200C07C17 /* Supporting Files */,
+			);
+			path = WoodshopMC;
+			sourceTree = "<group>";
+		};
+		D32099EF18F2AFA200C07C17 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D32099F018F2AFA200C07C17 /* WoodshopMC-Info.plist */,
+				D32099F118F2AFA200C07C17 /* InfoPlist.strings */,
+				D32099F418F2AFA200C07C17 /* main.m */,
+				D32099F618F2AFA200C07C17 /* WoodshopMC-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3209A1018F2AFA200C07C17 /* WoodshopMCTests */ = {
+			isa = PBXGroup;
+			children = (
+				D3209A1618F2AFA200C07C17 /* WoodshopMCTests.m */,
+				D3209A1118F2AFA200C07C17 /* Supporting Files */,
+			);
+			path = WoodshopMCTests;
+			sourceTree = "<group>";
+		};
+		D3209A1118F2AFA200C07C17 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3209A1218F2AFA200C07C17 /* WoodshopMCTests-Info.plist */,
+				D3209A1318F2AFA200C07C17 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D32099E418F2AFA100C07C17 /* WoodshopMC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3209A1A18F2AFA200C07C17 /* Build configuration list for PBXNativeTarget "WoodshopMC" */;
+			buildPhases = (
+				D32099E118F2AFA100C07C17 /* Sources */,
+				D32099E218F2AFA100C07C17 /* Frameworks */,
+				D32099E318F2AFA100C07C17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WoodshopMC;
+			productName = WoodshopMC;
+			productReference = D32099E518F2AFA100C07C17 /* WoodshopMC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D3209A0818F2AFA200C07C17 /* WoodshopMCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3209A1D18F2AFA200C07C17 /* Build configuration list for PBXNativeTarget "WoodshopMCTests" */;
+			buildPhases = (
+				D3209A0518F2AFA200C07C17 /* Sources */,
+				D3209A0618F2AFA200C07C17 /* Frameworks */,
+				D3209A0718F2AFA200C07C17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3209A0F18F2AFA200C07C17 /* PBXTargetDependency */,
+			);
+			name = WoodshopMCTests;
+			productName = WoodshopMCTests;
+			productReference = D3209A0918F2AFA200C07C17 /* WoodshopMCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D32099DD18F2AFA100C07C17 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WS;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = damy;
+				TargetAttributes = {
+					D3209A0818F2AFA200C07C17 = {
+						TestTargetID = D32099E418F2AFA100C07C17;
+					};
+				};
+			};
+			buildConfigurationList = D32099E018F2AFA100C07C17 /* Build configuration list for PBXProject "WoodshopMC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D32099DC18F2AFA100C07C17;
+			productRefGroup = D32099E618F2AFA100C07C17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D32099E418F2AFA100C07C17 /* WoodshopMC */,
+				D3209A0818F2AFA200C07C17 /* WoodshopMCTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D32099E318F2AFA100C07C17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3209A0418F2AFA200C07C17 /* Images.xcassets in Resources */,
+				D32099F318F2AFA200C07C17 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3209A0718F2AFA200C07C17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3209A1518F2AFA200C07C17 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D32099E118F2AFA100C07C17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D301D19A18F3388500EEBCA5 /* ScanManager.m in Sources */,
+				D32099F918F2AFA200C07C17 /* WSAppDelegate.m in Sources */,
+				D301D18918F3377800EEBCA5 /* UIView+FindAndResignFirstResponder.m in Sources */,
+				D301D19918F3388500EEBCA5 /* EmulatorReadingParser.m in Sources */,
+				D32099F518F2AFA200C07C17 /* main.m in Sources */,
+				D301D19B18F3388500EEBCA5 /* SensorReadingParser.m in Sources */,
+				D301D18818F3377800EEBCA5 /* GlobalData.m in Sources */,
+				D301D18718F3377800EEBCA5 /* CommonMethods.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3209A0518F2AFA200C07C17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3209A1718F2AFA200C07C17 /* WoodshopMCTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3209A0F18F2AFA200C07C17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D32099E418F2AFA100C07C17 /* WoodshopMC */;
+			targetProxy = D3209A0E18F2AFA200C07C17 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D32099F118F2AFA200C07C17 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D32099F218F2AFA200C07C17 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D3209A1318F2AFA200C07C17 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3209A1418F2AFA200C07C17 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D3209A1818F2AFA200C07C17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D3209A1918F2AFA200C07C17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D3209A1B18F2AFA200C07C17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WoodshopMC/WoodshopMC-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					TESTFLIGHT_ENABLED,
+					NONE_HIDE_BARS,
+				);
+				INFOPLIST_FILE = "WoodshopMC/WoodshopMC-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/WoodshopMC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A89068F0-5AD8-4DF3-BF5A-409906962C0D";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D3209A1C18F2AFA200C07C17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WoodshopMC/WoodshopMC-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					TESTFLIGHT_ENABLED,
+					NONE_HIDE_BARS,
+				);
+				INFOPLIST_FILE = "WoodshopMC/WoodshopMC-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/WoodshopMC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "CB06AC0F-C3EA-4F8B-B429-09A1E5DA5A81";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D3209A1E18F2AFA200C07C17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WoodshopMC.app/WoodshopMC";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WoodshopMC/WoodshopMC-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WoodshopMCTests/WoodshopMCTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D3209A1F18F2AFA200C07C17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WoodshopMC.app/WoodshopMC";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WoodshopMC/WoodshopMC-Prefix.pch";
+				INFOPLIST_FILE = "WoodshopMCTests/WoodshopMCTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D32099E018F2AFA100C07C17 /* Build configuration list for PBXProject "WoodshopMC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3209A1818F2AFA200C07C17 /* Debug */,
+				D3209A1918F2AFA200C07C17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3209A1A18F2AFA200C07C17 /* Build configuration list for PBXNativeTarget "WoodshopMC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3209A1B18F2AFA200C07C17 /* Debug */,
+				D3209A1C18F2AFA200C07C17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3209A1D18F2AFA200C07C17 /* Build configuration list for PBXNativeTarget "WoodshopMCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3209A1E18F2AFA200C07C17 /* Debug */,
+				D3209A1F18F2AFA200C07C17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D32099DD18F2AFA100C07C17 /* Project object */;
+}
