@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FSMainViewController"/>
+        <tabBarController definesPresentationContext="YES" id="hQi-x2-dEm" customClass="FSMainViewController">
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <tabBar key="tabBar" contentMode="scaleToFill" id="3FB-na-nKJ">
+                <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </tabBar>
+            <viewControllers>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="jjn-uQ-INt">
+                    <tabBarItem key="tabBarItem" title="Item" id="aBk-qE-L3M"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oh9-Cd-VWu">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController id="wt8-WC-Y8U" customClass="FSJobViewController">
+                            <navigationItem key="navigationItem" title="Item" id="i0c-ix-q2I"/>
+                            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                            <nil key="simulatedTopBarMetrics"/>
+                            <nil key="simulatedBottomBarMetrics"/>
+                            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                            <nil key="simulatedDestinationMetrics"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="rnF-I3-Lh8">
+                    <tabBarItem key="tabBarItem" title="Item" id="J8Y-qa-ra2"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <nil key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qa5-Pr-62X">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController id="lLl-oG-yb1" customClass="FSProductViewController">
+                            <navigationItem key="navigationItem" title="Root View Controller" id="yhs-MT-HYy"/>
+                            <nil key="simulatedStatusBarMetrics"/>
+                            <nil key="simulatedTopBarMetrics"/>
+                            <nil key="simulatedBottomBarMetrics"/>
+                            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                            <nil key="simulatedDestinationMetrics"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="Z7U-5j-s6E">
+                    <tabBarItem key="tabBarItem" title="Item" id="9dX-rQ-8JB"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <nil key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dvE-te-eXT">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController id="FRb-1K-I93" customClass="FSReportViewController">
+                            <navigationItem key="navigationItem" title="Root View Controller" id="Uuf-bd-fJz"/>
+                            <nil key="simulatedStatusBarMetrics"/>
+                            <nil key="simulatedTopBarMetrics"/>
+                            <nil key="simulatedBottomBarMetrics"/>
+                            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                            <nil key="simulatedDestinationMetrics"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="80z-gE-Pqc">
+                    <tabBarItem key="tabBarItem" title="Item" id="E5V-MT-v4d"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <nil key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cjp-tU-SJX">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController id="kiB-Sg-g4c" customClass="FSSettingViewController">
+                            <navigationItem key="navigationItem" title="Root View Controller" id="TPo-1m-zrk"/>
+                            <nil key="simulatedStatusBarMetrics"/>
+                            <nil key="simulatedTopBarMetrics"/>
+                            <nil key="simulatedBottomBarMetrics"/>
+                            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                            <nil key="simulatedDestinationMetrics"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="spv-hx-S0l">
+                    <tabBarItem key="tabBarItem" title="Item" id="5BU-aC-Sjb"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eym-CU-83I">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <viewControllers>
+                        <viewController id="OQg-Rv-6wN" customClass="FSRecordViewController">
+                            <navigationItem key="navigationItem" title="Item" id="w86-7s-gLf"/>
+                            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                            <nil key="simulatedTopBarMetrics"/>
+                            <nil key="simulatedBottomBarMetrics"/>
+                            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                            <nil key="simulatedDestinationMetrics"/>
+                        </viewController>
+                    </viewControllers>
+                </navigationController>
+            </viewControllers>
+            <connections>
+                <outlet property="btnHome" destination="5xE-3Q-on8" id="dwx-7l-kyo"/>
+                <outlet property="btnRecord" destination="BC1-Iw-0pQ" id="NrI-w8-xcZ"/>
+                <outlet property="btnReports" destination="OYF-nc-Q4T" id="Ofz-Sw-eLk"/>
+                <outlet property="viewForTabbar" destination="sjV-vh-qjm" id="8eg-Wd-gIk"/>
+            </connections>
+        </tabBarController>
+        <view contentMode="scaleToFill" id="sjV-vh-qjm">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_main_banner.png" id="aUB-bv-Rag">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5xE-3Q-on8" userLabel="Button - Jobs">
+                    <rect key="frame" x="64" y="8" width="64" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="bt_jobs_nl.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="bt_jobs_sl.png"/>
+                    <connections>
+                        <action selector="onTabItem:" destination="hQi-x2-dEm" eventType="touchUpInside" id="VRg-jM-mFn"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BC1-Iw-0pQ" userLabel="Button - Record">
+                    <rect key="frame" x="0.0" y="8" width="64" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="bt_record_nl.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="bt_record_sl.png"/>
+                    <connections>
+                        <action selector="onTabItem:" destination="hQi-x2-dEm" eventType="touchUpInside" id="Lyf-dl-cFg"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b2e-od-wau" userLabel="Button - Products">
+                    <rect key="frame" x="128" y="8" width="64" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="bt_Products_nl.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="bt_Products_sl.png"/>
+                    <connections>
+                        <action selector="onTabItem:" destination="hQi-x2-dEm" eventType="touchUpInside" id="sLw-O1-Uqh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OYF-nc-Q4T" userLabel="Button - Reports">
+                    <rect key="frame" x="192" y="8" width="64" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="bt_report_nl.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="bt_report_sl.png"/>
+                    <connections>
+                        <action selector="onTabItem:" destination="hQi-x2-dEm" eventType="touchUpInside" id="GHj-T2-u3u"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5Yj-5g-sVc" userLabel="Button - Settings">
+                    <rect key="frame" x="256" y="8" width="64" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="bt_setting_nl.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="bt_setting_sl.png"/>
+                    <connections>
+                        <action selector="onTabItem:" destination="hQi-x2-dEm" eventType="touchUpInside" id="eAL-w7-3Hs"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+    </objects>
+    <resources>
+        <image name="bg_main_banner.png" width="640" height="99"/>
+        <image name="bt_Products_nl.png" width="126" height="89"/>
+        <image name="bt_Products_sl.png" width="126" height="89"/>
+        <image name="bt_jobs_nl.png" width="126" height="89"/>
+        <image name="bt_jobs_sl.png" width="126" height="89"/>
+        <image name="bt_record_nl.png" width="126" height="89"/>
+        <image name="bt_record_sl.png" width="126" height="89"/>
+        <image name="bt_report_nl.png" width="126" height="89"/>
+        <image name="bt_report_sl.png" width="126" height="89"/>
+        <image name="bt_setting_nl.png" width="128" height="89"/>
+        <image name="bt_setting_sl.png" width="128" height="89"/>
+    </resources>
+</document>

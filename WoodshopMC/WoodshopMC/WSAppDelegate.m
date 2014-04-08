@@ -8,6 +8,7 @@
 
 #import "WSAppDelegate.h"
 #import "Global.h"
+#import "FSMainViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 @implementation WSAppDelegate
@@ -22,7 +23,7 @@
     [[GlobalData sharedData] loadInitData];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController = [WSMainViewController sharedController];
+    self.viewController = [FSMainViewController sharedController];
     [self.window setRootViewController:self.viewController];
     [self.window makeKeyAndVisible];
     

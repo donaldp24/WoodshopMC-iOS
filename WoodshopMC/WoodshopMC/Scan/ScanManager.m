@@ -109,7 +109,7 @@ static const int kPackageID = 0xDEB93391;
     NSLog(@"centralManagerDidUpdateState:[%@]",stateDescription);
 
 #ifdef TESTFLIGHT_ENABLED
-    [TestFlight passCheckpoint:[NSString stringWithFormat:@"centralManagerDidUpdateState:%@",
+    [TestFlight passCheckpoint:[NSString stringWithFormat:@"FloorSmart:centralManagerDidUpdateState:%@",
                                 stateDescription]];
 #endif
 
@@ -120,7 +120,7 @@ static const int kPackageID = 0xDEB93391;
      advertisementData:(NSDictionary *)advertisementData
                   RSSI:(NSNumber *)RSSI
 {
-    NSLog(@"%@",[NSString stringWithFormat:@"didDiscoverPeripheral:name=[%@]",
+    NSLog(@"%@",[NSString stringWithFormat:@"FloorSmart:didDiscoverPeripheral:name=[%@]",
                  peripheral.name]);
 
 
