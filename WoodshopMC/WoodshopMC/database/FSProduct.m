@@ -11,8 +11,6 @@
 @implementation FSProduct
 @synthesize productID = _productID;
 @synthesize productName = _productName;
-@synthesize productType = _productType;
-@synthesize productDeleted = _productDeleted;
 
 - (id)init
 {
@@ -20,8 +18,6 @@
     if (self) {
         _productID = 0;
         _productName = @"";
-        _productType = FSProductTypeFinished;
-        _productDeleted = 0;
     }
     return self;
 }
@@ -31,14 +27,8 @@
 {
     _productID = 0;
     _productName = @"";
-    _productType = FSProductTypeFinished;
-    _productDeleted = 0;
 }
 
-+ (NSString *)getDisplayProductType:(long)productType
-{
-    return (productType == FSProductTypeFinished) ? @"Finished" : @"Subfloor";
-}
 
 @end
 
@@ -50,7 +40,6 @@
         _locProductID = 0;
         _locProductLocID = 0;
         _locProductName = @"";
-        _locProductType = FSProductTypeFinished;
         _locProductCoverage = 0.0;
     }
     return self;

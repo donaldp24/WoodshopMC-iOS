@@ -13,7 +13,6 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *lblLocation;
 @property (nonatomic, retain) IBOutlet UILabel *lblProduct;
-@property (nonatomic, retain) IBOutlet UILabel *lblProductType;
 @property (nonatomic, retain) IBOutlet UILabel *lblCoverage;
 @property (nonatomic, retain) IBOutlet UIView *viewUnit;
 @property (nonatomic, retain) IBOutlet UILabel *lblUnitFt;

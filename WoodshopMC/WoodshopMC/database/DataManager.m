@@ -48,8 +48,8 @@ static DataManager *sharedManager;
         {
             char *sql_job = "CREATE TABLE tbl_job(job_id INTEGER PRIMARY KEY AUTOINCREMENT, job_name TEXT, job_archived INTEGER, deleted INTEGER);";
             char *sql_location = "CREATE TABLE tbl_location(location_id INTEGER PRIMARY KEY AUTOINCREMENT, location_jobid INTEGER, location_name TEXT, deleted INTEGER);";
-            char *sql_product = "CREATE TABLE tbl_product(product_id INTEGER PRIMARY KEY AUTOINCREMENT, product_name TEXT, product_type INTEGER, deleted INTEGER);";
-            char *sql_locproduct = "CREATE TABLE tbl_locproduct(locproduct_id INTEGER PRIMARY KEY AUTOINCREMENT, locproduct_locid INTEGER, locproduct_productname TEXT, locproduct_producttype INTEGER, locproduct_coverage DOUBLE, deleted INTEGER);";
+            char *sql_product = "CREATE TABLE tbl_product(product_id INTEGER PRIMARY KEY AUTOINCREMENT, product_name TEXT, deleted INTEGER);";
+            char *sql_locproduct = "CREATE TABLE tbl_locproduct(locproduct_id INTEGER PRIMARY KEY AUTOINCREMENT, locproduct_locid INTEGER, locproduct_productname TEXT, locproduct_coverage DOUBLE, deleted INTEGER);";
             char *sql_reading = "CREATE TABLE tbl_reading(read_id INTEGER PRIMARY KEY AUTOINCREMENT, read_locproductid INTEGER, read_date TEXT, read_uuid TEXT, read_rh INTEGER, read_convrh DOUBLE, read_temp INTEGER, read_convtemp DOUBLE, read_battery INTEGER, read_depth INTEGER, read_gravity INTEGER, read_material INTEGER, read_mc INTEGER, deleted INTEGER);";
             
             BOOL bRet = [_database executeDDL:sql_job];
@@ -251,7 +251,6 @@ static DataManager *sharedManager;
 - (void)deleteLocFromDatabase:(FSLocation *)loc
 {
     NSString *sql;
-    //sql = [NSString stringWithFormat:@"DELETE FROM tbl_location WHERE location_id = '%@'", loc.locID];
     sql = [NSString stringWithFormat:@"UPDATE tbl_location SET deleted = 1 WHERE location_id = %ld", loc.locID];
     [_database executeUpdate:sql];
 }
@@ -296,8 +295,6 @@ static DataManager *sharedManager;
         FSProduct *product  = [[[FSProduct alloc] init] autorelease];
         product.productID = [results intForColumn:@"product_id"];
         product.productName = [results stringForColumn:@"product_name"];
-        product.productType = [results intForColumn:@"product_type"];
-        product.productDeleted = [results intForColumn:@"deleted"];
         
         [arrProductList addObject:product];
     }
@@ -315,18 +312,16 @@ static DataManager *sharedManager;
         FSProduct *product  = [[[FSProduct alloc] init] autorelease];
         product.productID = [results intForColumn:@"product_id"];
         product.productName = [results stringForColumn:@"product_name"];
-        product.productType = [results intForColumn:@"product_type"];
-        product.productDeleted = [results intForColumn:@"deleted"];
         
         [arrProductList addObject:product];
     }
     return arrProductList;
 }
 
-- (BOOL)isExistSameProduct:(NSString *)productName productType:(long)productType
+- (BOOL)isExistSameProduct:(NSString *)productName
 {
     NSString *sql = @"";
-    sql = [NSString stringWithFormat:@"SELECT COUNT(*) AS samecount FROM tbl_product WHERE deleted = 0 and product_type = %ld and product_name = '%@'", productType, productName];
+    sql = [NSString stringWithFormat:@"SELECT COUNT(*) AS samecount FROM tbl_product WHERE deleted = 0 and product_name = '%@'", productName];
     FMResultSet *results = [_database executeQuery:sql];
     while ([results next]) {
         int count       = [results intForColumn:@"samecount"];
@@ -344,8 +339,6 @@ static DataManager *sharedManager;
     while ([results next]) {
         product.productID = [results intForColumn:@"product_id"];
         product.productName = [results stringForColumn:@"product_name"];
-        product.productType = [results intForColumn:@"product_type"];
-        product.productDeleted = [results intForColumn:@"deleted"];
         return product;
     }
     return nil;
@@ -354,7 +347,7 @@ static DataManager *sharedManager;
 - (int)addProductToDatabase:(FSProduct *)product
 {
     NSString *sql;
-    sql = [NSString stringWithFormat:@"INSERT INTO tbl_product (product_name, product_type, deleted) VALUES ('%@', %ld, 0)", product.productName, product.productType];
+    sql = [NSString stringWithFormat:@"INSERT INTO tbl_product (product_name, deleted) VALUES ('%@', 0)", product.productName];
     if ([_database executeUpdate:sql])
         return (int)[_database lastInsertRowId];
     return 0;
@@ -363,7 +356,7 @@ static DataManager *sharedManager;
 - (void)updateProductToDatabase:(FSProduct *)product
 {
     NSString *sql;
-    sql = [NSString stringWithFormat:@"UPDATE tbl_product SET product_name = '%@', product_type = %ld WHERE product_id = %ld", product.productName, product.productType, product.productID];
+    sql = [NSString stringWithFormat:@"UPDATE tbl_product SET product_name = '%@' WHERE product_id = %ld", product.productName, product.productID];
     [_database executeUpdate:sql];
 }
 
@@ -378,12 +371,10 @@ static DataManager *sharedManager;
 - (FSProduct *)getProductWithLocProduct:(FSLocProduct *)locProduct
 {
     FSProduct *product = [[FSProduct alloc] init];
-    FMResultSet *results = [_database executeQuery:[NSString stringWithFormat:@"SELECT * FROM tbl_product WHERE deleted = 0 AND product_name = '%@' and product_type = %ld", locProduct.locProductName, locProduct.locProductType]];
+    FMResultSet *results = [_database executeQuery:[NSString stringWithFormat:@"SELECT * FROM tbl_product WHERE deleted = 0 AND product_name = '%@'", locProduct.locProductName]];
     while ([results next]) {
         product.productID = [results intForColumn:@"product_id"];
         product.productName = [results stringForColumn:@"product_name"];
-        product.productType = [results intForColumn:@"product_type"];
-        product.productDeleted = [results intForColumn:@"deleted"];
         return product;
     }
     return nil;
@@ -403,7 +394,6 @@ static DataManager *sharedManager;
         locProduct.locProductID = [results intForColumn:@"locproduct_id"];
         locProduct.locProductLocID = [results intForColumn:@"locproduct_locid"];
         locProduct.locProductName = [results stringForColumn:@"locproduct_productname"];
-        locProduct.locProductType = [results intForColumn:@"locproduct_producttype"];
         locProduct.locProductCoverage = [results doubleForColumn:@"locproduct_coverage"];
         
         [arrLocProductList addObject:locProduct];
@@ -430,7 +420,6 @@ static DataManager *sharedManager;
         locProduct.locProductID = [results intForColumn:@"locproduct_id"];
         locProduct.locProductLocID = [results intForColumn:@"locproduct_locid"];
         locProduct.locProductName = [results stringForColumn:@"locproduct_productname"];
-        locProduct.locProductType = [results intForColumn:@"locproduct_producttype"];
         locProduct.locProductCoverage = [results doubleForColumn:@"locproduct_coverage"];
         
         [arrLocProductList addObject:locProduct];
@@ -438,10 +427,10 @@ static DataManager *sharedManager;
     return arrLocProductList;
 }
 
-- (BOOL)isExistSameLocProduct:(long)locID locProductName:(NSString *)locProductName locProductType:(long)locProductType
+- (BOOL)isExistSameLocProduct:(long)locID locProductName:(NSString *)locProductName
 {
     NSString *sql = @"";
-    sql = [NSString stringWithFormat:@"SELECT COUNT(*) AS samecount FROM tbl_locproduct WHERE deleted = 0 and locproduct_locid = %ld and locproduct_producttype = %ld and locproduct_productname = '%@'", locID, locProductType, locProductName];
+    sql = [NSString stringWithFormat:@"SELECT COUNT(*) AS samecount FROM tbl_locproduct WHERE deleted = 0 and locproduct_locid = %ld and locproduct_productname = '%@'", locID, locProductName];
     FMResultSet *results = [_database executeQuery:sql];
     while ([results next]) {
         int count       = [results intForColumn:@"samecount"];
@@ -461,7 +450,6 @@ static DataManager *sharedManager;
         locProduct.locProductID = [results intForColumn:@"locproduct_id"];
         locProduct.locProductLocID = [results intForColumn:@"locproduct_locid"];
         locProduct.locProductName = [results stringForColumn:@"locproduct_productname"];
-        locProduct.locProductType = [results intForColumn:@"locproduct_producttype"];
         locProduct.locProductCoverage = [results doubleForColumn:@"locproduct_coverage"];
         
         return locProduct;
@@ -478,7 +466,6 @@ static DataManager *sharedManager;
         locProduct.locProductID = [results intForColumn:@"locproduct_id"];
         locProduct.locProductLocID = [results intForColumn:@"locproduct_locid"];
         locProduct.locProductName = [results stringForColumn:@"locproduct_productname"];
-        locProduct.locProductType = [results intForColumn:@"locproduct_producttype"];
         locProduct.locProductCoverage = [results doubleForColumn:@"locproduct_coverage"];
         
         return locProduct;
@@ -488,14 +475,13 @@ static DataManager *sharedManager;
 
 - (FSLocProduct *)getLocProductWithProduct:(FSProduct *)product locID:(long)locID
 {
-    FMResultSet *results = [_database executeQuery:[NSString stringWithFormat:@"SELECT * FROM tbl_locproduct WHERE deleted = 0 AND locproduct_locid = %ld AND locproduct_productname = '%@' AND locproduct_producttype = %ld", locID, product.productName, product.productType]];
+    FMResultSet *results = [_database executeQuery:[NSString stringWithFormat:@"SELECT * FROM tbl_locproduct WHERE deleted = 0 AND locproduct_locid = %ld AND locproduct_productname = '%@'", locID, product.productName]];
     while ([results next]) {
         
         FSLocProduct *locProduct  = [[[FSLocProduct alloc] init] autorelease];
         locProduct.locProductID = [results intForColumn:@"locproduct_id"];
         locProduct.locProductLocID = [results intForColumn:@"locproduct_locid"];
         locProduct.locProductName = [results stringForColumn:@"locproduct_productname"];
-        locProduct.locProductType = [results intForColumn:@"locproduct_producttype"];
         locProduct.locProductCoverage = [results doubleForColumn:@"locproduct_coverage"];
         
         return locProduct;
@@ -506,7 +492,7 @@ static DataManager *sharedManager;
 - (int)addLocProductToDatabaseWithProduct:(FSProduct *)product locID:(long)locID coverage:(double)coverage
 {
     NSString *sql;
-    sql = [NSString stringWithFormat:@"INSERT INTO tbl_locproduct (locproduct_locid, locproduct_productname, locproduct_producttype, locproduct_coverage, deleted) VALUES (%ld, '%@', %ld, %f, 0)", locID, product.productName, product.productType, coverage];
+    sql = [NSString stringWithFormat:@"INSERT INTO tbl_locproduct (locproduct_locid, locproduct_productname, locproduct_coverage, deleted) VALUES (%ld, '%@', %f, 0)", locID, product.productName, coverage];
     if ([_database executeUpdate:sql])
         return (int)[_database lastInsertRowId];
     return 0;
@@ -515,7 +501,7 @@ static DataManager *sharedManager;
 - (int)addLocProductToDatabase:(FSLocProduct *)locProduct
 {
     NSString *sql;
-    sql = [NSString stringWithFormat:@"INSERT INTO tbl_locproduct (locproduct_locid, locproduct_productname, locproduct_producttype, locproduct_coverage, deleted) VALUES (%ld, '%@', %ld, %f, 0)", locProduct.locProductLocID, locProduct.locProductName, locProduct.locProductType, locProduct.locProductCoverage];
+    sql = [NSString stringWithFormat:@"INSERT INTO tbl_locproduct (locproduct_locid, locproduct_productname, locproduct_coverage, deleted) VALUES (%ld, '%@', %f, 0)", locProduct.locProductLocID, locProduct.locProductName, locProduct.locProductCoverage];
     if ([_database executeUpdate:sql])
         return (int)[_database lastInsertRowId];
     return 0;
@@ -524,7 +510,7 @@ static DataManager *sharedManager;
 - (BOOL)updateLocProductToDatabase:(FSLocProduct *)locProduct
 {
     NSString *sql;
-    sql = [NSString stringWithFormat:@"UPDATE tbl_locproduct SET locproduct_locid = %ld, locproduct_productname = '%@', locproduct_producttype = %ld, locproduct_coverage = %f WHERE locproduct_id = %ld", locProduct.locProductLocID, locProduct.locProductName, locProduct.locProductType, locProduct.locProductCoverage, locProduct.locProductID];
+    sql = [NSString stringWithFormat:@"UPDATE tbl_locproduct SET locproduct_locid = %ld, locproduct_productname = '%@', locproduct_coverage = %f WHERE locproduct_id = %ld", locProduct.locProductLocID, locProduct.locProductName, locProduct.locProductCoverage, locProduct.locProductID];
     return [_database executeUpdate:sql];
 }
 
@@ -536,27 +522,7 @@ static DataManager *sharedManager;
 }
 
 #pragma mark - Readings
-- (NSMutableArray *)getCurReadings:(long)locProductID
-{
-    /*
-     read_locproductid
-     read_date
-     read_uuid
-     read_rh
-     read_convrh
-     read_temp
-     read_convtemp
-     read_battery
-     read_depth
-     read_gravity
-     read_material
-     read_mc
-     deleted
-*/
-    NSMutableArray *arrReadingsList = [[NSMutableArray alloc] init];
-    NSDate *curDate = [NSDate date];
-    return [self getReadings:locProductID withDate:curDate];
-}
+
 
 - (NSMutableArray *)getAllReadingDates:(long)locProductID
 {

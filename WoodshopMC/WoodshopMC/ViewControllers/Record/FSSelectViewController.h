@@ -22,7 +22,7 @@
     id  _curSelectedData;
 }
 
-@property (nonatomic, strong) IBOutlet UILabel *lblTitle;
+@property (nonatomic, strong) IBOutlet UIImageView *imgTitle;
 @property (nonatomic, strong) IBOutlet UIView *viewContainer;
 @property (nonatomic, strong) IBOutlet UITableView *tblMain;
 

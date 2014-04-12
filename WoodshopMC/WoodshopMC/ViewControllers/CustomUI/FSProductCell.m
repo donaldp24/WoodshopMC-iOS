@@ -11,7 +11,7 @@
 #import "Defines.h"
 
 @implementation FSProductCell
-@synthesize lblProductName, txtProductName, lblProductType, viewEdit, viewEditing, viewEditingProcType, lblEditingProcType;
+@synthesize lblProductName, txtProductName, viewEdit, viewEditing;
 @synthesize curProduct = _curProduct;
 @synthesize delegate;
 
@@ -43,9 +43,6 @@
 {
     _curProduct = curProduct;
     [lblProductName setText:curProduct.productName];
-    self.curProductType = curProduct.productType;
-    
-    [lblProductType setText:[FSProduct getDisplayProductType:curProduct.productType]];
 }
 
 #pragma mark - textfield delegate
@@ -72,9 +69,7 @@
     [viewEditing setHidden:NO];
     [lblProductName setHidden:YES];
     [txtProductName setHidden:NO];
-    [lblProductType setHidden:YES];
-    [viewEditingProcType setHidden:NO];
-    [lblEditingProcType setText:lblProductType.text];
+
     [txtProductName becomeFirstResponder];
 }
 
@@ -104,10 +99,7 @@
         [lblProductName setHidden:NO];
         [viewEditing setHidden:YES];
         [viewEdit setHidden:NO];
-        [lblProductType setText:lblEditingProcType.text];
-        [lblProductType setHidden:NO];
-        [viewEditingProcType setHidden:YES];
-        [lblEditingProcType setText:@""];
+
     }
 }
 
@@ -125,9 +117,7 @@
     [lblProductName setHidden:NO];
     [viewEditing setHidden:YES];
     [viewEdit setHidden:NO];
-    [lblProductType setHidden:NO];
-    [viewEditingProcType setHidden:YES];
-    [lblEditingProcType setText:@""];
+
 }
 
 - (IBAction)onComboProc:(id)sender

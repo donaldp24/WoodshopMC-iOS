@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -25,11 +26,11 @@
                         </connections>
                     </button>
                     <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eY9-QD-Qqh" userLabel="View - Editing">
-                        <rect key="frame" x="230" y="15" width="65" height="30"/>
+                        <rect key="frame" x="220" y="13" width="80" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7X3-2v-wH4" userLabel="Button - cancel">
-                                <rect key="frame" x="34" y="2" width="25" height="25"/>
+                                <rect key="frame" x="45" y="2" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" backgroundImage="bt_cancel.png">
@@ -40,7 +41,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHY-ZA-nmN" userLabel="Button - ok">
-                                <rect key="frame" x="2" y="2" width="25" height="25"/>
+                                <rect key="frame" x="5" y="2" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="edit" image="bt_check.png">
@@ -54,11 +55,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xq6-3q-Zd6" userLabel="View - Control">
-                        <rect key="frame" x="230" y="15" width="70" height="30"/>
+                        <rect key="frame" x="220" y="13" width="80" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vD3-yp-4EL" userLabel="Button - archive">
-                                <rect key="frame" x="34" y="2" width="30" height="25"/>
+                                <rect key="frame" x="45" y="2" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="delete" image="bt_job_delete.png">
@@ -69,7 +70,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBv-zf-e77">
-                                <rect key="frame" x="2" y="2" width="25" height="25"/>
+                                <rect key="frame" x="5" y="2" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="edit" image="bt_job_edit.png">
@@ -83,9 +84,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9De-2s-dNM" userLabel="txtName">
-                        <rect key="frame" x="15" y="15" width="210" height="30"/>
+                        <rect key="frame" x="15" y="12" width="210" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                         <connections>
@@ -93,10 +93,9 @@
                         </connections>
                     </textField>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mercy Hospital" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXR-gL-wuf" userLabel="lblName">
-                        <rect key="frame" x="15" y="15" width="210" height="30"/>
+                        <rect key="frame" x="15" y="12" width="210" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -115,10 +114,10 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bg_product_list_bar.png" width="595" height="82"/>
-        <image name="bt_cancel.png" width="25" height="24"/>
-        <image name="bt_check.png" width="27" height="24"/>
-        <image name="bt_job_delete.png" width="31" height="36"/>
-        <image name="bt_job_edit.png" width="26" height="25"/>
+        <image name="bg_product_list_bar.png" width="601" height="63"/>
+        <image name="bt_cancel.png" width="50" height="50"/>
+        <image name="bt_check.png" width="50" height="50"/>
+        <image name="bt_job_delete.png" width="50" height="50"/>
+        <image name="bt_job_edit.png" width="50" height="50"/>
     </resources>
 </document>

@@ -8,24 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-
-typedef enum : long
-{
-    FSProductTypeFinished,
-    FSProductTypeSubfloor
-}FSProductType;
-
-
 @interface FSProduct : NSObject
 
 @property (nonatomic) long productID;
 @property (nonatomic, retain) NSString *productName;
-@property (nonatomic) long productType;
-@property (nonatomic) long productDeleted;
 
 - (void)clear;
 
-+ (NSString *)getDisplayProductType:(long)productType;
 
 @end
 
@@ -35,7 +24,7 @@ typedef enum : long
 @property (nonatomic) long locProductID;
 @property (nonatomic) long locProductLocID;
 @property (nonatomic, retain) NSString *locProductName;
-@property (nonatomic) long locProductType;
+
 @property (nonatomic) double locProductCoverage;
 
 @end

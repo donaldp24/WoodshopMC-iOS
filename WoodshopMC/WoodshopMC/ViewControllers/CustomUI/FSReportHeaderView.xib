@@ -8,11 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1" customClass="FSReportHeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="117"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="102"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_archive_job_tab.png" translatesAutoresizingMaskIntoConstraints="NO" id="o8m-Mq-H0v">
-                    <rect key="frame" x="0.0" y="4" width="300" height="113"/>
+                    <rect key="frame" x="0.0" y="4" width="300" height="98"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uza-8q-Sau">
@@ -44,28 +44,21 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="39" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLU-6d-ZJb">
-                    <rect key="frame" x="103" y="84" width="86" height="21"/>
+                    <rect key="frame" x="103" y="70" width="86" height="21"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coverage : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srq-IE-Xie">
-                    <rect key="frame" x="10" y="84" width="80" height="21"/>
+                    <rect key="frame" x="10" y="70" width="80" height="21"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Finished" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgR-EM-vwT">
-                    <rect key="frame" x="103" y="59" width="65" height="21"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bUO-D6-C7P">
-                    <rect key="frame" x="164" y="83" width="63" height="22"/>
+                    <rect key="frame" x="164" y="69" width="63" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ft" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfG-hP-rR1">
@@ -99,7 +92,6 @@
                 <outlet property="lblCoverage" destination="TLU-6d-ZJb" id="AFY-qh-odU"/>
                 <outlet property="lblLocation" destination="7n6-7A-jbQ" id="BSO-Qi-PTj"/>
                 <outlet property="lblProduct" destination="eJo-k4-pvb" id="Vy4-Ah-FpZ"/>
-                <outlet property="lblProductType" destination="SgR-EM-vwT" id="Hu3-Df-D4E"/>
                 <outlet property="lblUnitFt" destination="tfG-hP-rR1" id="vVx-xl-sM2"/>
                 <outlet property="lblUnitM" destination="lok-aX-dJ0" id="P4h-09-Xev"/>
                 <outlet property="viewUnit" destination="bUO-D6-C7P" id="F2R-fg-QHQ"/>

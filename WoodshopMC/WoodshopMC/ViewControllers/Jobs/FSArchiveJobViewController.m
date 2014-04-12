@@ -70,7 +70,7 @@
         
         if (self.txtTop.text == nil || [self.txtTop.text isEqualToString:@""])
         {
-            [self.lblNoResult setText:@"No Jobs"];
+            [self.lblNoResult setText:@"No Archived Jobs"];
         }
         else
         {

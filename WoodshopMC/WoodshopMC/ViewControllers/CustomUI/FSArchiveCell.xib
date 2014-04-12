@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <view contentMode="scaleToFill" id="9PI-gb-pSy" userLabel="View - Edit">
-                        <rect key="frame" x="230" y="15" width="70" height="30"/>
+                        <rect key="frame" x="220" y="15" width="80" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="95h-BL-AWZ">
-                                <rect key="frame" x="37" y="2" width="30" height="25"/>
+                                <rect key="frame" x="47" y="0.0" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" image="ic_delete.png">
+                                <state key="normal" image="bt_job_delete.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ufc-FB-qlg" userLabel="Button - unarchive">
-                                <rect key="frame" x="5" y="2" width="28" height="25"/>
+                                <rect key="frame" x="5" y="0.0" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="ic_refresh.png">
@@ -51,7 +51,6 @@
                         <rect key="frame" x="15" y="15" width="210" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dTj-Wh-X7u" userLabel="Button - Detail">
@@ -76,8 +75,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bg_product_list_bar.png" width="595" height="82"/>
-        <image name="ic_delete.png" width="20" height="30"/>
-        <image name="ic_refresh.png" width="28" height="30"/>
+        <image name="bg_product_list_bar.png" width="601" height="63"/>
+        <image name="bt_job_delete.png" width="50" height="50"/>
+        <image name="ic_refresh.png" width="50" height="50"/>
     </resources>
 </document>

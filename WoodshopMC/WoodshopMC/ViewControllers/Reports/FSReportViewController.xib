@@ -28,6 +28,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title_job_overview.png" id="ixG-Ko-Mp6">
+                    <rect key="frame" x="74" y="15" width="172" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CAi-lk-AgB" userLabel="job name">
                     <rect key="frame" x="89" y="66" width="213" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -55,7 +59,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="E75-59-Naw" userLabel="Button - Back">
-                    <rect key="frame" x="10" y="7" width="28" height="28"/>
+                    <rect key="frame" x="1" y="12" width="28" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                     <state key="normal" image="bt_back.png">
@@ -66,13 +70,6 @@
                         <action selector="onBack:" destination="-1" eventType="touchUpInside" id="8IG-E6-PQn"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Overview" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="anY-7A-jkb">
-                    <rect key="frame" x="57" y="10" width="206" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7HT-Vu-ceF" userLabel="Button - Back">
                     <rect key="frame" x="252" y="3" width="63" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,7 +83,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LJA-cr-q6K">
-                    <rect key="frame" x="271" y="10" width="25" height="25"/>
+                    <rect key="frame" x="293" y="13" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="fly" image="bt_fly.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,7 +109,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gtd-79-wbN">
-                            <rect key="frame" x="0.0" y="0.0" width="280" height="346"/>
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="326"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
@@ -131,8 +128,9 @@
     </objects>
     <resources>
         <image name="background.png" width="640" height="1136"/>
-        <image name="bg_title_bar.png" width="640" height="103"/>
-        <image name="bt_back.png" width="15" height="28"/>
-        <image name="bt_fly.png" width="35" height="35"/>
+        <image name="bg_title_bar.png" width="640" height="112"/>
+        <image name="bt_back.png" width="56" height="56"/>
+        <image name="bt_fly.png" width="56" height="56"/>
+        <image name="title_job_overview.png" width="344" height="44"/>
     </resources>
 </document>

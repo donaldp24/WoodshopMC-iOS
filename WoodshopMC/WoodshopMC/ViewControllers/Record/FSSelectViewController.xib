@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FSSelectViewController">
             <connections>
-                <outlet property="lblTitle" destination="7hd-1L-ubk" id="iIl-qU-e79"/>
+                <outlet property="imgTitle" destination="f5t-Pt-8Op" id="5y3-Ao-VIH"/>
                 <outlet property="tblMain" destination="SyF-Hx-OQE" id="1og-Fu-Uoc"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outlet property="viewContainer" destination="aZz-9D-o3S" id="ypC-te-uNj"/>
@@ -44,18 +44,14 @@
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg_picker.png" id="MY3-3Q-YQ3">
-                            <rect key="frame" x="0.0" y="41" width="320" height="163"/>
+                            <rect key="frame" x="0.0" y="40.999999999999993" width="320" height="163"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select a Job" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7hd-1L-ubk">
-                            <rect key="frame" x="73" y="9" width="175" height="25"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                            <size key="shadowOffset" width="1" height="1"/>
-                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title_select_job.png" id="f5t-Pt-8Op">
+                            <rect key="frame" x="74" y="12" width="172" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SyF-Hx-OQE">
                             <rect key="frame" x="0.0" y="42" width="320" height="162"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -82,6 +78,7 @@
     </objects>
     <resources>
         <image name="bg_picker.png" width="640" height="483"/>
-        <image name="bg_title_bar.png" width="640" height="103"/>
+        <image name="bg_title_bar.png" width="640" height="112"/>
+        <image name="title_select_job.png" width="344" height="44"/>
     </resources>
 </document>

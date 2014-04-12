@@ -14,14 +14,11 @@
 
 @property (nonatomic, assign) IBOutlet UILabel *lblProductName;
 @property (nonatomic, assign) IBOutlet UITextField *txtProductName;
-@property (nonatomic, assign) IBOutlet UILabel *lblProductType;
 @property (nonatomic, assign) IBOutlet UIView *viewEditing;
 @property (nonatomic, assign) IBOutlet UIView *viewEdit;
-@property (nonatomic, assign) IBOutlet UIView *viewEditingProcType;
-@property (nonatomic, assign) IBOutlet UILabel *lblEditingProcType;
+
 
 @property (nonatomic, strong) FSLocProduct *curLocProduct;
-@property (nonatomic) long curLocProductType;
 
 @property (nonatomic, strong) id<FSProductCellDelegate> delegate;
 

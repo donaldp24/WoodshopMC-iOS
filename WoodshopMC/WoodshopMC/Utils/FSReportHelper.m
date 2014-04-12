@@ -233,16 +233,6 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
     [self drawText:strHeader
          withFrame:CGRectMake(60, ypos, width, 30)
           withFont:font];
-    if ([locProduct.locProductName isEqualToString:FMD_DEFAULT_PRODUCTNAME])
-    {
-        int xpos = 60 + width;
-        strHeader = [NSString stringWithFormat:@"(%@)", [FSProduct getDisplayProductType:locProduct.locProductType]];
-        font = [UIFont systemFontOfSize:22.0f];
-        width = [CommonMethods widthOfString:strHeader withFont:font] + 20;
-        [self drawText:strHeader
-             withFrame:CGRectMake(xpos, ypos, width, 30)
-              withFont:font];
-    }
     
     ypos += 30;
     

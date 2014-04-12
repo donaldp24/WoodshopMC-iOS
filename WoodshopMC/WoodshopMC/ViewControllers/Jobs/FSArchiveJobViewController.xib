@@ -60,13 +60,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Archived Jobs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K7O-4R-Y0T">
-                    <rect key="frame" x="74" y="10" width="173" height="21"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title_archived_jobs.png" id="laK-OT-An0">
+                    <rect key="frame" x="74" y="15" width="172" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Archived Jobs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q7M-u9-FqH" userLabel="no results">
                     <rect key="frame" x="75" y="229" width="169" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -87,7 +84,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nwi-g0-YMn" userLabel="Button - Back">
-                    <rect key="frame" x="10" y="7" width="28" height="28"/>
+                    <rect key="frame" x="1" y="12" width="28" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                     <state key="normal" image="bt_back.png">
@@ -127,11 +124,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fH0-EC-FJY" userLabel="btnCancel">
-                            <rect key="frame" x="245" y="6" width="46" height="30"/>
+                            <rect key="frame" x="245" y="5" width="46" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <state key="normal" title="Cancel">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -146,7 +143,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fXT-s4-0Yc">
-                            <rect key="frame" x="0.0" y="0.0" width="297" height="344"/>
+                            <rect key="frame" x="0.0" y="0.0" width="297" height="324"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -167,11 +164,12 @@
     <resources>
         <image name="background.png" width="640" height="1136"/>
         <image name="bg_cancelarchive_job.png" width="356" height="180"/>
-        <image name="bg_job_keyword.png" width="595" height="61"/>
-        <image name="bg_title_bar.png" width="640" height="103"/>
+        <image name="bg_job_keyword.png" width="594" height="67"/>
+        <image name="bg_title_bar.png" width="640" height="112"/>
         <image name="bt_alertcancel.png" width="113" height="33"/>
-        <image name="bt_back.png" width="15" height="28"/>
+        <image name="bt_back.png" width="56" height="56"/>
         <image name="bt_ok.png" width="113" height="33"/>
         <image name="ic_search.png" width="31" height="31"/>
+        <image name="title_archived_jobs.png" width="344" height="44"/>
     </resources>
 </document>

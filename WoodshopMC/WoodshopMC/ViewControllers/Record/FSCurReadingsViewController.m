@@ -74,7 +74,7 @@
         
         [lblJobName setText:jobName];
         [lblLocName setText:[NSString stringWithFormat:@"Location: %@", locName]];
-        [lblProcName setText:[NSString stringWithFormat:@"Product: %@ (%@)", procName, [FSProduct getDisplayProductType:self.curLocProduct.locProductType]]];
+        [lblProcName setText:[NSString stringWithFormat:@"Product: %@", procName]];
         
         coverage = self.curLocProduct.locProductCoverage;
         

@@ -56,7 +56,7 @@
     if (_mode == MODE_SELECT_JOB)
     {
         arrayData = [[DataManager sharedInstance] getJobs:0 searchField:@""];
-        [self.lblTitle setText:@"Select a Job"];
+        [self.imgTitle setImage:[UIImage imageNamed:@"title_select_job"]];
     }
     else if (_mode == MODE_SELECT_LOCATION)
     {
@@ -65,14 +65,14 @@
         
         
         arrayData = [[DataManager sharedInstance] getAllDistinctLocations];
-        [self.lblTitle setText:@"Select a Location"];
+        [self.imgTitle setImage:[UIImage imageNamed:@"title_select_location"]];
     }
     else if (_mode == MODE_SELECT_PRODUCT)
     {
         FSLocation *loc = (FSLocation *)_parentNode;
         //arrayData = [[DataManager sharedInstance] getLocProducts:loc searchField:@""];
         arrayData = [[DataManager sharedInstance] getProducts:@""];
-        [self.lblTitle setText:@"Select a Product"];
+        [self.imgTitle setImage:[UIImage imageNamed:@"title_select_product"]];
     }
     FSRecordViewController *p = (FSRecordViewController *)_parent;
     [p hideSummary];
@@ -186,16 +186,20 @@
         else if (_mode == MODE_SELECT_PRODUCT)
         {
             FSProduct *product = [arrayData objectAtIndex:indexPath.row];
-            [str appendFormat:@"%@ (%@)", product.productName, [FSProduct getDisplayProductType:product.productType]];
+            [str appendFormat:@"%@", product.productName];
         }
     }
     UITableViewCell *cell = [self.tblMain dequeueReusableCellWithIdentifier:@"selectcell"];
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"selectcell"];
-        [cell.textLabel setTextColor:[UIColor whiteColor]];
-        [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
+        
     }
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [cell setBackgroundColor:[UIColor clearColor]];
+    [cell.textLabel setBackgroundColor:[UIColor clearColor]];
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
+    [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
     cell.textLabel.text = str;
     return cell;
 }

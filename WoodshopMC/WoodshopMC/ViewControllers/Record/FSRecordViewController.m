@@ -58,8 +58,6 @@
     defaultProduct = [[FSProduct alloc] init];
     defaultProduct.productID = 0;
     defaultProduct.productName = FMD_DEFAULT_PRODUCTNAME;
-    defaultProduct.productType = FSProductTypeFinished;
-    defaultProduct.productDeleted = 0.0;
 }
 
 - (void)viewDidLoad
@@ -340,6 +338,19 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+#define CHARACTER_LIMIT 10
+#define NUMBERS_ONLY @"1234567890."
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:NUMBERS_ONLY] invertedSet];
+    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    
+    return (([string isEqualToString:filtered]) && ((newLength > CHARACTER_LIMIT) ? NO : YES));
+}
+
 
 - (IBAction)BeginEditing:(UITextField *)sender
 {
@@ -766,7 +777,6 @@
         FSLocProduct *locProduct = [[FSLocProduct alloc] init];
         locProduct.locProductLocID = selectedLocation.locID;
         locProduct.locProductName = FMD_DEFAULT_PRODUCTNAME;
-        locProduct.locProductType = FSProductTypeFinished;
         locProduct.locProductCoverage = coverage;
         locProduct.locProductID = [[DataManager sharedInstance] addLocProductToDatabase:locProduct];
         

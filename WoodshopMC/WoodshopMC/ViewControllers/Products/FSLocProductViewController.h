@@ -30,10 +30,7 @@
 @property (nonatomic, assign) IBOutlet UIView *viewTopSearch;
 @property (nonatomic, assign) IBOutlet UITextField *txtAdd;
 @property (nonatomic, assign) IBOutlet UITextField *txtSearch;
-@property (nonatomic, assign) IBOutlet UIView *viewSelectType;
-@property (nonatomic, assign) IBOutlet UILabel *lblSelectType;
-@property (nonatomic, assign) IBOutlet UIButton *btnFinished;
-@property (nonatomic, assign) IBOutlet UIButton *btnSubfloor;
+
 @property (nonatomic, assign) IBOutlet UISwitch *switchShowMain;
 @property (nonatomic, assign) IBOutlet UILabel *lblNoResult;
 @property (nonatomic, assign) IBOutlet UILabel *lblJobLocName;
@@ -46,9 +43,7 @@
 
 - (IBAction)onDelete_OK:(id)sender;
 - (IBAction)onDelete_Cancel:(id)sender;
-- (IBAction)onSelectType:(id)sender;
-- (IBAction)onSelectFinished:(id)sender;
-- (IBAction)onSelectSubfloor:(id)sender;
+
 
 - (IBAction)onAdd:(id)sender;
 - (IBAction)onClose:(id)sender;

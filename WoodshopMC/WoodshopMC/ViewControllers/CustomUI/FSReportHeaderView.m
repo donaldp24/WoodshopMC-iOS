@@ -35,8 +35,6 @@
     
     view.lblLocation.text = loc.locName;
     view.lblProduct.text = locProuct.locProductName;
-    view.lblProductType.text = [FSProduct getDisplayProductType:locProuct.locProductType];
-    
     
     GlobalData *globalData = [GlobalData sharedData];
     

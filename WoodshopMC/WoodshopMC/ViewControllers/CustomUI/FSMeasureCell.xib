@@ -18,42 +18,42 @@
                         <rect key="frame" x="5" y="9" width="51" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                        <color key="textColor" red="0.38616071429999999" green="0.1436503636" blue="0.025436113010000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.30588235294117649" green="0.15686274509803921" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2LZ-zd-FFP">
                         <rect key="frame" x="54" y="9" width="44" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                        <color key="textColor" red="0.38616071429999999" green="0.1436503636" blue="0.025436113010000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.30588235294117649" green="0.15686274509803921" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wDT-J4-na2">
                         <rect key="frame" x="105" y="9" width="49" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                        <color key="textColor" red="0.38616071429999999" green="0.1436503636" blue="0.025436113010000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.30588235294117649" green="0.15686274509803921" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kcg-S3-ynt">
                         <rect key="frame" x="156" y="9" width="40" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                        <color key="textColor" red="0.38616071429999999" green="0.1436503636" blue="0.025436113010000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.30588235294117649" green="0.15686274509803921" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WzR-Ds-QNS">
                         <rect key="frame" x="198" y="9" width="33" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                        <color key="textColor" red="0.38616071429999999" green="0.1436503636" blue="0.025436113010000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.30588235294117649" green="0.15686274509803921" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="h9e-uh-v77" userLabel="Button - del">
-                        <rect key="frame" x="236" y="9" width="14" height="18"/>
+                        <rect key="frame" x="236" y="9" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <state key="normal" title="delete" image="ic_delete.png">
+                        <state key="normal" title="delete" image="bt_job_delete_brown.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
@@ -85,6 +85,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_delete.png" width="20" height="30"/>
+        <image name="bt_job_delete_brown.png" width="28" height="28"/>
     </resources>
 </document>

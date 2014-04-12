@@ -50,9 +50,7 @@
 // product
 - (NSMutableArray *)getAllProducts;
 - (NSMutableArray *)getProducts:(NSString *)searchField;
-- (BOOL)isExistSameProduct:(NSString *)productName productType:(long)productType;
-//- (NSMutableArray *)getProducts:(NSMutableArray *)arrFeeds;
-//- (NSMutableArray *)getFeedProducts:(NSString *)jobID loc:(NSInteger)locID;
+- (BOOL)isExistSameProduct:(NSString *)productName;
 - (FSProduct *)getProductFromID:(long)procID;
 - (int)addProductToDatabase:(FSProduct *)product;
 - (void)updateProductToDatabase:(FSProduct *)product;
@@ -62,7 +60,7 @@
 // products for specific location
 - (NSMutableArray *)getLocProducts:(FSLocation *)loc searchField:(NSString *)searchField;
 - (NSMutableArray *)getLocProducts:(FSLocation *)loc searchField:(NSString *)searchField containDefault:(BOOL) isContain;
-- (BOOL)isExistSameLocProduct:(long)locID locProductName:(NSString *)locProductName locProductType:(long)locProductType;
+- (BOOL)isExistSameLocProduct:(long)locID locProductName:(NSString *)locProductName;
 - (FSLocProduct *)getLocProductWithID:(long)locProductID;
 - (FSLocProduct *)getDefaultLocProductOfLocation:(FSLocation *)loc;
 - (FSLocProduct *)getLocProductWithProduct:(FSProduct *)product locID:(long)locID;
@@ -72,7 +70,6 @@
 - (BOOL)deleteLocProductFromDatabase:(FSLocProduct *)locProduct;
 
 
-- (NSMutableArray *)getCurReadings:(long)locProductID;
 - (NSMutableArray *)getAllReadingDates:(long)locProductID;
 - (NSMutableArray *)getReadings:(long)locProductID withDate:(NSDate *)date;
 - (NSInteger)getReadingsCount:(long)locProductID;

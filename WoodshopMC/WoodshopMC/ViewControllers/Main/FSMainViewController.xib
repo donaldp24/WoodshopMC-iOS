@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -140,7 +140,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5xE-3Q-on8" userLabel="Button - Jobs">
-                    <rect key="frame" x="64" y="8" width="64" height="41"/>
+                    <rect key="frame" x="65" y="4" width="63" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="bt_jobs_nl.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,7 +151,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BC1-Iw-0pQ" userLabel="Button - Record">
-                    <rect key="frame" x="0.0" y="8" width="64" height="41"/>
+                    <rect key="frame" x="0.0" y="4" width="64" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="bt_record_nl.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -162,7 +162,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b2e-od-wau" userLabel="Button - Products">
-                    <rect key="frame" x="128" y="8" width="64" height="41"/>
+                    <rect key="frame" x="128" y="4" width="64" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="bt_Products_nl.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,7 +173,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OYF-nc-Q4T" userLabel="Button - Reports">
-                    <rect key="frame" x="192" y="8" width="64" height="41"/>
+                    <rect key="frame" x="192" y="4" width="64" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="bt_report_nl.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -184,7 +184,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5Yj-5g-sVc" userLabel="Button - Settings">
-                    <rect key="frame" x="256" y="8" width="64" height="41"/>
+                    <rect key="frame" x="256" y="4" width="64" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="bt_setting_nl.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -210,7 +210,7 @@
         <image name="bt_record_sl.png" width="126" height="89"/>
         <image name="bt_report_nl.png" width="126" height="89"/>
         <image name="bt_report_sl.png" width="126" height="89"/>
-        <image name="bt_setting_nl.png" width="128" height="89"/>
-        <image name="bt_setting_sl.png" width="128" height="89"/>
+        <image name="bt_setting_nl.png" width="126" height="89"/>
+        <image name="bt_setting_sl.png" width="126" height="89"/>
     </resources>
 </document>
