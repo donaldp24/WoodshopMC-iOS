@@ -195,12 +195,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"selectcell"];
         
     }
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [cell setBackgroundColor:[UIColor clearColor]];
-    [cell.textLabel setBackgroundColor:[UIColor clearColor]];
-    [cell.textLabel setTextColor:[UIColor whiteColor]];
-    [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.text = str;
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
     return cell;
 }
 

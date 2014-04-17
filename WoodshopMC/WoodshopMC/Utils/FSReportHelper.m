@@ -77,10 +77,8 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
 
 -(NSString *)getStringFromDate:(NSDate *)date {
 
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm:ss"];
-    NSString *stringFromDate = [dateFormatter stringFromDate:date];
-    return stringFromDate;
+    GlobalData *globalData = [GlobalData sharedData];
+    return [CommonMethods date2str:date withFormat:globalData.settingDateFormat];
 }
 
 - (void)fillReportData:(FSJob *)job {
@@ -181,7 +179,7 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
                      newLineSeparator:[row[kNewLineKey] boolValue]];
     }
 
-    if (YES) {
+    if (NO) {
         [self drawLogoImage];
         [self drawTextWithLeftAllignment:@"Certified By Wagner Meters"
                                withFrame:CGRectMake(kBorderInset + kMarginInset+150, kBorderInset + kMarginInset + 850.0,400 , 80)
@@ -289,8 +287,14 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
     CGFloat tempavg = [FSReading getTempAvg:arrayReadings];
     CGFloat emcavg = [FSReading getEmcAvg:arrayReadings];
     
-    NSString *strStatistic = [NSString stringWithFormat:@"MC Avg: %.1f%%;\t\tRH Avg: %d%%;\t\tTemp Avg: %dC;\t\tEMC Avg:%.1f%%", mcavg / 10.f, ROUND(rhavg), ROUND(tempavg), emcavg];
+    GlobalData *globalData = [GlobalData sharedData];
+    if (globalData.settingTemp == YES)
+        tempavg = [FSReading getFTemperature:tempavg];
+        
     
+//    NSString *strStatistic = [NSString stringWithFormat:@"MC Avg: %.1f%%;\t\tRH Avg: %d%%;\t\tTemp Avg: %dC;\t\tEMC Avg:%.1f%%", mcavg / 10.f, ROUND(rhavg), ROUND(tempavg), emcavg];
+    NSString *strStatistic = [NSString stringWithFormat:@"MC Avg: %.1f%%;\t\tRH Avg: %d%%;\t\tTemp Avg: %d%@;\t\tEMC Avg:%.1f%%", mcavg, ROUND(rhavg), ROUND(tempavg), [globalData getTempUnit], emcavg];
+
     CGFloat width = [CommonMethods widthOfString:strStatistic withFont:font] + 20;
     
     [self drawText:strStatistic
@@ -308,6 +312,8 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
     CGFloat columnWidth = 150;
     int numberOfColumns = 6;
     
+    GlobalData *globalData = [GlobalData sharedData];
+    
     // table header
     [self drawTableAt:CGPointMake(xOrigin, yOrigin)
         withRowHeight:kRowHeight
@@ -318,7 +324,7 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
     NSArray *labels = @[@"No",
                         @"MC (%)",
                         @"RH (%)",
-                        @"Temp (C)",
+                        [NSString stringWithFormat:@"Temp (%@)", [globalData getTempUnit]],
                         @"EMC (%)",
                         @"Time"
                         ];
@@ -358,7 +364,7 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
         
         // MC(%)
         column++;
-        [self drawText:[NSString stringWithFormat:@"%.1f", reading.readMC / 10.f]
+        [self drawText:[NSString stringWithFormat:@"%@", [reading getDisplayRealMCValue]]
              withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
                                   yOrigin + 10 + (kRowHeight * (i - startIndex)),
                                   columnWidth - 20,
@@ -376,9 +382,12 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
               withFont:textFont
            placeholder:kEmptyPlaceholder];
         
-        // Temp(C)
+        // Temp
         column++;
-        [self drawText:[NSString stringWithFormat:@"%d", ROUND(reading.readConvTemp)]
+        float temp = reading.readConvTemp;
+        if (globalData.settingTemp == YES) //f
+            temp = [FSReading getFTemperature:temp];
+        [self drawText:[NSString stringWithFormat:@"%d", ROUND(temp)]
              withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
                                   yOrigin + 10 + (kRowHeight * (i - startIndex)),
                                   columnWidth - 20,

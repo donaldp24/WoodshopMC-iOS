@@ -13,6 +13,7 @@
 
 @required
 - (void)scanManager:(ScanManager*)scanManager didFindSensor:(NSDictionary*)sensorData;
+- (void)scanManager:(ScanManager*)scanManager didFindThirdPackage:(NSData*)thirdData;
 
 @optional
 - (void)scanManagerDidStartScanning:(ScanManager*)scanManager;

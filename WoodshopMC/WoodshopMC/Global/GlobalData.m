@@ -81,7 +81,9 @@ GlobalData *_globalData = nil;
     _selectedLocID = [self readIntEntry:config key:KEY_SELECTEDLOCID defaults:0];
     _selectedLocProductID = [self readIntEntry:config key:KEY_SELECTEDLOCPRODUCTID defaults:0];
     
+#ifdef TESTFLIGHT_ENABLED
     [TestFlight passCheckpoint:@"loadInitData"];
+#endif
     
 }
 
@@ -109,17 +111,33 @@ GlobalData *_globalData = nil;
     [defaults synchronize];
 }
 
-- (void)setSavedData:(long)selectedJobID selectedLocID:(long)selectedLocID selectedLocProductID:(long)selectedLocProductID
+- (void)saveSelection:(long)selectedJobID selectedLocID:(long)selectedLocID selectedLocProductID:(long)selectedLocProductID
 {
-    _isSaved = YES;
+    
     _selectedJobID = selectedJobID;
     _selectedLocID = selectedLocID;
     _selectedLocProductID = selectedLocProductID;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:_isSaved forKey:KEY_ISSAVED];
+    
     [defaults setInteger:selectedJobID forKey:KEY_SELECTEDJOBID];
     [defaults setInteger:selectedLocID forKey:KEY_SELECTEDLOCID];
     [defaults setInteger:selectedLocProductID forKey:KEY_SELECTEDLOCPRODUCTID];
+    [defaults synchronize];
+}
+
+- (void)startRecording
+{
+    _isSaved = YES;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:_isSaved forKey:KEY_ISSAVED];
+    [defaults synchronize];
+}
+
+- (void)pauseRecording
+{
+    _isSaved = NO;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:_isSaved forKey:KEY_ISSAVED];
     [defaults synchronize];
 }
 

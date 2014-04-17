@@ -50,6 +50,22 @@
     return M;
 }
 
+- (CGFloat)getRealMCValue
+{
+    if (self.readMaterial == FSMaterialModeWood)
+        return (CGFloat)self.readMC / 10.f;
+    else
+        return (CGFloat)self.readMC;
+}
+
+- (NSString *)getDisplayRealMCValue
+{
+    if (self.readMaterial == FSMaterialModeWood)
+        return [NSString stringWithFormat:@"%.1f", [self getRealMCValue]];
+    else
+        return [NSString stringWithFormat:@"%ld", (long)[self getRealMCValue]];
+}
+
 + (NSString *) getDisplayDepth:(long)depth
 {
     if (depth == 1)
@@ -59,11 +75,11 @@
 
 + (NSString *) getDisplayMaterial:(long)material
 {
-    if (material == 0)
-        return @"WOOD";
-    else if (material == 1)
-        return @"RELATIVE";
-    return @"CONCRETE";
+    if (material == FSMaterialModeWood)
+        return @"Wood";
+    else if (material == FSMaterialModeRelative)
+        return @"Relative";
+    return @"Concrete";
 }
 
 + (CGFloat) getCTemperature:(CGFloat)fTemp
@@ -79,12 +95,19 @@
     return ftemp;
 }
 
++ (NSString *) getDisplayMC:(CGFloat)mc
+{
+    return [NSString stringWithFormat:@"%.1f", mc];
+}
+
+
 + (CGFloat) getMCAvg:(NSMutableArray *)array
 {
     CGFloat mcsum = 0;
     for (int i = 0; i < [array count]; i++) {
         FSReading *data = [array objectAtIndex:i];
-        mcsum += data.readMC;
+        mcsum += [data getRealMCValue];
+
     }
     if ([array count] == 0)
         return 0.0;
@@ -96,8 +119,9 @@
     CGFloat mcmax = 0;
     for (int i = 0; i < [array count]; i++) {
         FSReading *data = [array objectAtIndex:i];
-        if (mcmax < data.readMC)
-            mcmax = data.readMC;
+        if (mcmax < [data getRealMCValue])
+            mcmax = [data getRealMCValue];
+
     }
     return mcmax;
 }
@@ -108,12 +132,12 @@
     if ([array count] == 0)
         return mcmin;
     FSReading *data1 = [array objectAtIndex:0];
-    mcmin = data1.readMC;
+    mcmin = [data1 getRealMCValue];
     
     for (int i = 0; i < [array count]; i++) {
         FSReading *data = [array objectAtIndex:i];
-         if (mcmin > data.readMC)
-             mcmin = data.readMC;
+        if (mcmin > [data getRealMCValue])
+            mcmin = [data getRealMCValue];
     }
     return mcmin;
 }

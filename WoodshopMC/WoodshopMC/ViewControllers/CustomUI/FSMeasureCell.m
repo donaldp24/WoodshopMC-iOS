@@ -42,7 +42,7 @@
     _curReading = curReading;
     NSDate *curReadDate = curReading.readTimestamp;
     [lblTime setText:[NSString stringWithFormat:@"%@hrs", [CommonMethods date2str:curReadDate withFormat:@"HH:mm"]]];
-    [lblMC setText:[NSString stringWithFormat:@"%.1f", curReading.readMC / 10.f]];
+    [lblMC setText:[NSString stringWithFormat:@"%@", [curReading getDisplayRealMCValue]]];
     
     // EMC
     [lblEMC setText:[NSString stringWithFormat:@"%.1f", [curReading getEmcValue]]];

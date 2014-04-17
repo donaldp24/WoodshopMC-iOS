@@ -42,7 +42,11 @@
         infoColorOrdinal = [UIColor colorWithRed:211.0/255.0 green:163.0/255.0 blue:51.0/255.0 alpha:1.0];
         infoColorError = [UIColor colorWithRed:255.0/255.0 green:0.0/255.0 blue:66.0/255.0 alpha:1.0];
         infoColorSubscribed = [UIColor colorWithRed:40.0/255.0 green:181.0/255.0 blue:110.0/255.0 alpha:1.0];
+        
+        self.isFromRecorded = NO;
+
     }
+    
     return self;
 }
 
@@ -57,6 +61,24 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    GlobalData *globalData = [GlobalData sharedData];
+    
+    // Title
+    if (self.curDate == nil || [CommonMethods compareOnlyDate:self.curDate date2:[NSDate date] ] == NSOrderedSame)
+    {
+        //self.lblTitle.text = @"Today's Readings";
+        self.titleReadings.hidden = YES;
+        self.titleTodaysReadings.hidden = NO;
+    }
+    else
+    {
+        //self.lblTitle.text = [NSString stringWithFormat:@"Readings (%@)", [CommonMethods date2str:self.curDate withFormat:globalData.settingDateFormat]];
+        self.titleReadings.hidden = NO;
+        self.titleTodaysReadings.hidden = YES;
+    }
+    
+
     
     CGFloat coverage = 0.0;
     
@@ -88,7 +110,6 @@
         coverage = 0.0f;
     }
     
-    GlobalData *globalData = [GlobalData sharedData];
     
     float convCoverage = coverage;
     if (globalData.settingArea == YES) //ft
@@ -117,10 +138,14 @@
     self.lblCoverage.text = strCoverage;
     CGFloat szWidth = [CommonMethods widthOfString:strCoverage withFont:self.lblCoverage.font];
     CGRect frame = self.viewUnit.frame;
-    frame.origin.x = self.lblCoverage.frame.origin.x + szWidth + 5;
+    frame.origin.x = self.lblCoverage.frame.origin.x + szWidth + 10;
     self.viewUnit.frame = frame;
     
     [self initDateTable];
+    if (self.isFromRecorded) {
+        [self scrollToLastRow];
+        self.isFromRecorded = NO;
+    }
     
 }
 
@@ -157,11 +182,15 @@
         [self setCurData:[arrOverallReadings lastObject]];
         [self setOverallData];
         
-        if ([arrOverallReadings count] > 0)
-        {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[arrOverallReadings count] - 1 inSection:0];
-            [self.tblDetal scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        }
+    }
+}
+
+- (void)scrollToLastRow
+{
+    if ([arrOverallReadings count] > 0)
+    {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[arrOverallReadings count] - 1 inSection:0];
+        [self.tblDetal scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
 }
 
@@ -271,7 +300,7 @@
     self.curReading = cell.curReading;
     
     [self.view bringSubviewToFront:self.archive_alertview];
-    [self.lblCurrReading setText:[NSString stringWithFormat:@"MC:%.1f%%(%@ hrs)", cell.curReading.readMC / 10.f, [CommonMethods date2str:cell.curReading.readTimestamp withFormat:@"HH:mm"]]];
+    [self.lblCurrReading setText:[NSString stringWithFormat:@"MC:%@%%(%@ hrs)", [cell.curReading getDisplayRealMCValue], [CommonMethods date2str:cell.curReading.readTimestamp withFormat:@"HH:mm"]]];
     [self.archive_alertview setHidden:NO];
     [self showAlertAnimation];
 }
@@ -352,9 +381,9 @@
         
         GlobalData *globalData = [GlobalData sharedData];
         
-        [lblOverMCAVG setText:[NSString stringWithFormat:@"MC Avg: %.1f%@", mcavg / 10.f, @"%"]];
-        [lblOverMCHigh setText:[NSString stringWithFormat:@"MC High: %.1f%@", mchigh / 10.f, @"%"]];
-        [lblOverMCLow setText:[NSString stringWithFormat:@"MC Low: %.1f%@", mclow / 10.f, @"%"]];
+        [lblOverMCAVG setText:[NSString stringWithFormat:@"MC Avg: %.1f%@", mcavg, @"%"]];
+        [lblOverMCHigh setText:[NSString stringWithFormat:@"MC High: %.1f%@", mchigh, @"%"]];
+        [lblOverMCLow setText:[NSString stringWithFormat:@"MC Low: %.1f%@", mclow, @"%"]];
         [lblOverEMCAVG setText:[NSString stringWithFormat:@"EMC Avg: %.1f%@", emcavg, @"%" ]];
         [lblOverRHAVG setText:[NSString stringWithFormat:@"RH Avg: %d%@", ROUND(rhavg), @"%"]];
         
@@ -429,7 +458,7 @@
         self.lblCurDepth.text = [NSString stringWithFormat:@"Depth : %@", [FSReading getDisplayDepth:data.readDepth]];
         self.lblCurMaterial.text = [NSString stringWithFormat:@"Material : %@", [FSReading getDisplayMaterial:data.readMaterial]];
         self.lblCurGravity.text = [NSString stringWithFormat:@"s.g. : %ld", data.readGravity];
-        self.lblCurMC.text = [NSString stringWithFormat:@"MC : %.1f%%", data.readMC / 10.f];
+        self.lblCurMC.text = [NSString stringWithFormat:@"MC : %@%%", [data getDisplayRealMCValue]];
         
         // Current EMC
         self.lblCurEMC.text = [NSString stringWithFormat:@"EMC : %.1f%%", [data getEmcValue]];

@@ -125,20 +125,9 @@ const int scanDelay = 5;
     
     SEL aSelector = NSSelectorFromString(@"startScan");
     [self.scanManager stopScan];
+    
     [self.scanManager performSelector:aSelector withObject:nil afterDelay:scanDelay];
     NSLog(@"FloorSmart:scanManager.didFindSensor");
-    
-    /*
-    ScanSensorViewController * scanSensorVC;
-    CustomNavigationController * custNC = [self.viewControllers objectAtIndex:1];
-    if (custNC) {
-        [self setSelectedViewController: custNC];
-        scanSensorVC = custNC.viewControllers.firstObject;
-        scanSensorVC.sensorData = sensorData;
-        [scanSensorVC resetUI];
-        [scanSensorVC displayData:scanSensorVC.sensorData];
-    }
-     */
     
     GlobalData *globalData = [GlobalData sharedData];
     if (globalData.isSaved == NO)
@@ -156,10 +145,17 @@ const int scanDelay = 5;
             [recordVC showReadingView];
         }
     }
-    
-    
+}
+
+- (void)scanManager:(ScanManager *)scanManager didFindThirdPackage:(NSData *)thirdData
+{
+    SEL aSelector = NSSelectorFromString(@"startScan");
+    [self.scanManager stopScan];
+    [self.scanManager performSelector:aSelector withObject:nil afterDelay:scanDelay];
+    NSLog(@"FloorSmart:scanManager.didFindThirdPackage");
     
 }
+
 
 
 @end

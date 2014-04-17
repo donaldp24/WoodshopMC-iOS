@@ -155,6 +155,7 @@ static const int kPackageID = 0xDEB93391;
              [NSData dataWithBytes:&kPackageID length:4]])
         {
             NSLog(@"Third party package was received.");
+            [[self delegate] scanManager:self didFindThirdPackage:manufacturedData];
             return;
         }
 
@@ -190,6 +191,7 @@ static const int kPackageID = 0xDEB93391;
              [NSData dataWithBytes:&packageID length:4]])
         {
             NSLog(@"Third party package was received.");
+            [[self delegate] scanManager:self didFindThirdPackage:manufacturedData];
             return;
         }
         
@@ -216,6 +218,7 @@ static const int kPackageID = 0xDEB93391;
              [NSData dataWithBytes:&packageID length:4]])
         {
             NSLog(@"Third party package was received.");
+            [[self delegate] scanManager:self didFindThirdPackage:manufacturedData];
             return;
         }
         

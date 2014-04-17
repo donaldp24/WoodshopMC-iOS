@@ -51,12 +51,32 @@ static DataManager *sharedManager;
             char *sql_product = "CREATE TABLE tbl_product(product_id INTEGER PRIMARY KEY AUTOINCREMENT, product_name TEXT, deleted INTEGER);";
             char *sql_locproduct = "CREATE TABLE tbl_locproduct(locproduct_id INTEGER PRIMARY KEY AUTOINCREMENT, locproduct_locid INTEGER, locproduct_productname TEXT, locproduct_coverage DOUBLE, deleted INTEGER);";
             char *sql_reading = "CREATE TABLE tbl_reading(read_id INTEGER PRIMARY KEY AUTOINCREMENT, read_locproductid INTEGER, read_date TEXT, read_uuid TEXT, read_rh INTEGER, read_convrh DOUBLE, read_temp INTEGER, read_convtemp DOUBLE, read_battery INTEGER, read_depth INTEGER, read_gravity INTEGER, read_material INTEGER, read_mc INTEGER, deleted INTEGER);";
+            char *sql_version = "CREATE TABLE tbl_version(version_id INTEGER PRIMARY KEY AUTOINCREMENT, version_no TEXT);";
             
             BOOL bRet = [_database executeDDL:sql_job];
             bRet = [_database executeDDL:sql_location];
             bRet = [_database executeDDL:sql_product];
             bRet = [_database executeDDL:sql_locproduct];
             bRet = [_database executeDDL:sql_reading];
+            bRet = [_database executeDDL:sql_version];
+            
+            NSString *sql_version_register = [NSString stringWithFormat:@"INSERT INTO tbl_version(version_no) VALUES('%@')", FMD_VERSION];
+            bRet = [_database executeUpdate:sql_version_register];
+            if (bRet == NO)
+                bRet = bRet;
+        }
+        else
+        {
+            NSString *currVersion = @"0";
+            FMResultSet *results = [_database executeQuery:@"SELECT * FROM tbl_version"];
+            while ([results next]) {
+                currVersion = [results stringForColumn:@"version_no"];
+                
+                break;
+            }
+            if ([currVersion isEqualToString:@"1"]) {
+                currVersion = currVersion;
+            }
         }
     }
 

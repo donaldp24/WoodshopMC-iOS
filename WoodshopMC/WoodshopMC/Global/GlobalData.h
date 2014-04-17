@@ -35,8 +35,10 @@
 - (NSString *)getCurrentDate:(NSString *)format;
 - (NSString *)getCurrentDateAndTime:(NSString *)format;
 
-- (void)setSavedData:(long)selectedJobID selectedLocID:(long)selectedLocID selectedLocProductID:(long)selectedLocProductID;
+- (void)saveSelection:(long)selectedJobID selectedLocID:(long)selectedLocID selectedLocProductID:(long)selectedLocProductID;
 - (void)resetSavedData;
+- (void)startRecording;
+- (void)pauseRecording;
 
 - (NSString *)getTempUnit;
 + (CGFloat) sqft2sqm:(CGFloat) sqft;

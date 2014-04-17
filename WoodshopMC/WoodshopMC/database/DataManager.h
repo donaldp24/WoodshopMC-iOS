@@ -13,6 +13,9 @@
 #import "FSLocation.h"
 #import "FSFeed.h"
 #import "FSReading.h"
+
+#define FMD_VERSION                 @"1"
+
 #define FMD_DEFAULT_LOCATIONNAME    @"Default"
 #define FMD_DEFAULT_PRODUCTNAME     @"Default"
 

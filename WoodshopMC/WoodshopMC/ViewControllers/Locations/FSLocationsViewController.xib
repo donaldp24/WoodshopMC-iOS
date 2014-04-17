@@ -61,7 +61,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title_locations.png" id="e6q-jl-niM">
-                    <rect key="frame" x="74" y="15" width="172" height="22"/>
+                    <rect key="frame" x="90" y="17" width="140" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XaH-PA-4Gh" userLabel="btnBg">
@@ -186,6 +186,6 @@
         <image name="bt_job_add.png" width="50" height="50"/>
         <image name="bt_job_delete.png" width="50" height="50"/>
         <image name="bt_ok.png" width="113" height="33"/>
-        <image name="title_locations.png" width="355" height="180"/>
+        <image name="title_locations.png" width="280" height="34"/>
     </resources>
 </document>

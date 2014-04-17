@@ -36,65 +36,75 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_product_list_bar.png" id="gYq-2G-5dk">
-                    <rect key="frame" x="41" y="119" width="240" height="40"/>
+                    <rect key="frame" x="30" y="119" width="260" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_product_list_bar.png" id="W5N-Io-jTr">
-                    <rect key="frame" x="41" y="71" width="240" height="40"/>
+                    <rect key="frame" x="30" y="71" width="260" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="55r-xi-5R6">
-                    <rect key="frame" x="50" y="76" width="104" height="28"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="55r-xi-5R6">
+                    <rect key="frame" x="40" y="75" width="104" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tul-iN-ip9">
-                    <rect key="frame" x="162" y="78" width="56" height="24"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oK0-xJ-dX1">
+                    <rect key="frame" x="145" y="77" width="136" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="F" image="segment_f.png">
+                    <color key="backgroundColor" red="0.33725490196078434" green="0.15686274509803921" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XbG-KN-IBo">
+                    <rect key="frame" x="145" y="125" width="136" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.33725490200000002" green="0.15686274510000001" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tul-iN-ip9">
+                    <rect key="frame" x="145" y="77" width="68" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="bg_f_nl.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" image="segment_f_selected.png"/>
+                    <state key="selected" image="bg_f_sl.png"/>
                     <connections>
                         <action selector="onTempF:" destination="-1" eventType="touchUpInside" id="X6I-nr-1w5"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QDw-J9-6nG">
-                    <rect key="frame" x="218" y="78" width="56" height="24"/>
+                    <rect key="frame" x="213" y="77" width="68" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="C" image="segment_c.png">
+                    <state key="normal" image="bg_c_nl.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" title="C" image="segment_c_selected.png"/>
+                    <state key="selected" title="C" image="bg_c_sl.png"/>
                     <connections>
                         <action selector="onTempC:" destination="-1" eventType="touchUpInside" id="y6V-8d-nxD"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ONn-o0-xRz">
-                    <rect key="frame" x="41" y="125" width="64" height="28"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ONn-o0-xRz">
+                    <rect key="frame" x="40" y="125" width="64" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WC0-7W-YfK">
-                    <rect key="frame" x="161" y="127" width="56" height="24"/>
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WC0-7W-YfK">
+                    <rect key="frame" x="145" y="125" width="68" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="ft" image="segment_ft.png">
+                    <state key="normal" title="ft" image="bg_ft_nl.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" image="segment_ft_selected.png"/>
+                    <state key="selected" image="bg_ft_sl.png"/>
                     <connections>
                         <action selector="onAreaFT:" destination="-1" eventType="touchUpInside" id="azr-OV-ebk"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="A0Z-WA-dbj">
-                    <rect key="frame" x="217" y="127" width="56" height="24"/>
+                    <rect key="frame" x="213" y="125" width="68" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="m" image="segment_m.png">
+                    <state key="normal" image="bg_m_nl.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" title="m" image="segment_m_selected.png"/>
+                    <state key="selected" image="bg_m_sl.png"/>
                     <connections>
                         <action selector="onAreaM:" destination="-1" eventType="touchUpInside" id="gf8-ok-B3I"/>
                     </connections>
@@ -110,9 +120,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="xs4-fr-5zI">
-                    <rect key="frame" x="32" y="236" width="256" height="30"/>
+                    <rect key="frame" x="25" y="236" width="270" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="ustime" image="bt_ustime.png">
+                    <state key="normal" image="bt_ustime.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" image="bt_ustime_selected.png"/>
@@ -121,7 +131,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" id="RYI-bb-wfq">
-                    <rect key="frame" x="33" y="241" width="95" height="24"/>
+                    <rect key="frame" x="30" y="241" width="95" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/19/2013" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UMX-fh-JoM">
@@ -135,9 +145,9 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="lTj-Oz-3yC">
-                    <rect key="frame" x="32" y="267" width="256" height="30"/>
+                    <rect key="frame" x="25" y="267" width="270" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="eurotime" image="bt_eurotime.png">
+                    <state key="normal" image="bt_eurotime.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="selected" image="bt_eurotime_selected.png"/>
@@ -146,7 +156,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" id="6b3-p4-eTw">
-                    <rect key="frame" x="33" y="271" width="95" height="24"/>
+                    <rect key="frame" x="30" y="271" width="95" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/19/2013" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ORG-vt-tIC">
@@ -167,21 +177,21 @@
     </objects>
     <resources>
         <image name="background.png" width="640" height="1136"/>
+        <image name="bg_c_nl.png" width="120" height="44"/>
+        <image name="bg_c_sl.png" width="120" height="44"/>
         <image name="bg_dateformat.png" width="602" height="213"/>
+        <image name="bg_f_nl.png" width="120" height="44"/>
+        <image name="bg_f_sl.png" width="120" height="44"/>
+        <image name="bg_ft_nl.png" width="120" height="44"/>
+        <image name="bg_ft_sl.png" width="120" height="44"/>
+        <image name="bg_m_nl.png" width="120" height="44"/>
+        <image name="bg_m_sl.png" width="120" height="44"/>
         <image name="bg_product_list_bar.png" width="601" height="63"/>
         <image name="bg_title_bar.png" width="640" height="112"/>
         <image name="bt_eurotime.png" width="465" height="48"/>
         <image name="bt_eurotime_selected.png" width="465" height="48"/>
         <image name="bt_ustime.png" width="465" height="48"/>
         <image name="bt_ustime_selected.png" width="465" height="48"/>
-        <image name="segment_c.png" width="84" height="38"/>
-        <image name="segment_c_selected.png" width="84" height="38"/>
-        <image name="segment_f.png" width="84" height="38"/>
-        <image name="segment_f_selected.png" width="84" height="38"/>
-        <image name="segment_ft.png" width="84" height="38"/>
-        <image name="segment_ft_selected.png" width="84" height="38"/>
-        <image name="segment_m.png" width="84" height="38"/>
-        <image name="segment_m_selected.png" width="84" height="38"/>
         <image name="title_settings.png" width="344" height="44"/>
     </resources>
 </document>

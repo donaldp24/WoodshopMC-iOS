@@ -47,12 +47,12 @@
     defaultLocation.locName = FMD_DEFAULT_LOCATIONNAME;
     
     /*
-    defaultProduct = [[FSLocProduct alloc] init];
-    defaultProduct.locProductID = 0;
-    defaultProduct.locProductLocID = 0;
-    defaultProduct.locProductName = @DEFAULT_PRODUCTNAME;
-    defaultProduct.locProductType = FSProductTypeFinished;
-    defaultProduct.locProductCoverage = 0.0;
+     defaultProduct = [[FSLocProduct alloc] init];
+     defaultProduct.locProductID = 0;
+     defaultProduct.locProductLocID = 0;
+     defaultProduct.locProductName = @DEFAULT_PRODUCTNAME;
+     defaultProduct.locProductType = FSProductTypeFinished;
+     defaultProduct.locProductCoverage = 0.0;
      */
     
     defaultProduct = [[FSProduct alloc] init];
@@ -72,26 +72,35 @@
     readingVC = nil;
     
     GlobalData *globalData = [GlobalData sharedData];
-    if (globalData.isSaved == YES)
+    
+    selectedJob = [[DataManager sharedInstance] getJobFromID:globalData.selectedJobID];
+    selectedLocation = [[DataManager sharedInstance] getLocationFromID:globalData.selectedLocID];
+    selectedProduct = nil;
+    selectedLocProduct = [[DataManager sharedInstance] getLocProductWithID:globalData.selectedLocProductID];
+    
+    if (selectedJob == nil
+        || selectedLocation == nil
+        || selectedLocProduct == nil)
     {
-        selectedJob = [[DataManager sharedInstance] getJobFromID:globalData.selectedJobID];
-        selectedLocation = [[DataManager sharedInstance] getLocationFromID:globalData.selectedLocID];
-        selectedProduct = nil;
-        selectedLocProduct = [[DataManager sharedInstance] getLocProductWithID:globalData.selectedLocProductID];
-        
-        if (selectedJob == nil
-            || selectedLocation == nil
-            || selectedLocProduct == nil)
-        {
-            NSLog(@"global data : jobid(%ld - %ld), locid(%ld - %ld), locproductid(%ld - %ld) ", globalData.selectedJobID, (selectedJob == nil ? 0 : selectedJob.jobID), globalData.selectedLocID, (selectedLocation == nil ? 0 : selectedLocation.locID), globalData.selectedLocProductID, (selectedLocProduct == nil ? 0 : selectedLocProduct.locProductID));
-        }
-        else
-        {
-            NSLog(@"global data : jobid(%ld - %@), locid(%ld - %@), locproductid(%ld - %@) ", selectedJob.jobID, selectedJob.jobName, selectedLocation.locID, selectedLocation.locName, selectedLocProduct.locProductID, selectedLocProduct.locProductName);
-        }
-        
+        NSLog(@"global data : jobid(%ld - %ld), locid(%ld - %ld), locproductid(%ld - %ld) ", globalData.selectedJobID, (selectedJob == nil ? 0 : selectedJob.jobID), globalData.selectedLocID, (selectedLocation == nil ? 0 : selectedLocation.locID), globalData.selectedLocProductID, (selectedLocProduct == nil ? 0 : selectedLocProduct.locProductID));
+    }
+    else
+    {
+        NSLog(@"global data : jobid(%ld - %@), locid(%ld - %@), locproductid(%ld - %@) ", selectedJob.jobID, selectedJob.jobName, selectedLocation.locID, selectedLocation.locName, selectedLocProduct.locProductID, selectedLocProduct.locProductName);
+    }
+    if (selectedJob != nil)
         [self setLabelSelected:self.lblJob text:selectedJob.jobName];
+    else
+        [self setLabelNotSelected:self.lblJob];
+    
+    if (selectedLocation != nil)
         [self setLabelSelected:self.lblLocation text:selectedLocation.locName];
+    else
+        [self setLabelNotSelected:self.lblLocation];
+    
+    
+    if (selectedLocProduct != nil)
+    {
         [self setLabelSelected:self.lblProduct text:selectedLocProduct.locProductName];
         
         if (globalData.settingArea == YES) //ft
@@ -111,28 +120,23 @@
         {
             [self setLabelNotSelected:self.lblProduct];
         }
-        
-        self.btnSave.enabled = NO;
-        self.btnCancel.enabled = YES;
-        //self.btnSummary.enabled = YES;
-        self.txtCoverage.enabled = NO;
     }
     else
     {
-        selectedJob = nil;
-        selectedLocation = nil;
-        selectedProduct = nil;
-        selectedLocProduct = nil;
-        
-        [self setLabelNotSelected:self.lblJob];
-        [self setLabelNotSelected:self.lblLocation];
         [self setLabelNotSelected:self.lblProduct];
         self.txtCoverage.text = @"";
-        
+    }
+    
+    if (globalData.isSaved == YES &&
+        (selectedJob != nil && selectedLocation != nil && selectedLocProduct != nil) )
+    {
+        self.btnSave.enabled = NO;
+        self.btnCancel.enabled = YES;
+    }
+    else
+    {
         self.btnSave.enabled = YES;
         self.btnCancel.enabled = NO;
-        //self.btnSummary.enabled = NO;
-        self.txtCoverage.enabled = YES;
     }
     
     if (globalData.settingArea == YES) //ft
@@ -178,7 +182,7 @@
             [self setLabelSelected:self.lblJob text:[NSString stringWithFormat:@"%@", selectedJob.jobName]];
         }
     }
-
+    
     if (selectedLocation)
     {
         FSLocation *orgLoc = selectedLocation;
@@ -227,19 +231,19 @@
     if (isKeeped == NO)
     {
         GlobalData *globalData = [GlobalData sharedData];
-        if (globalData.isSaved)
-        {
-            [globalData resetSavedData];
-            self.btnCancel.enabled = NO;
-            self.btnSave.enabled = YES;
-            //self.btnSummary.enabled = NO;
-        }
+        //if (globalData.isSaved)
+        //{
+        [globalData resetSavedData];
+        self.btnCancel.enabled = NO;
+        self.btnSave.enabled = YES;
+        //self.btnSummary.enabled = NO;
+        //}
         
         if (selectedJob == nil) {
             [self setLabelNotSelected:self.lblJob];
             [self setLabelNotSelected:self.lblLocation];
             [self setLabelNotSelected:self.lblProduct];
-
+            
             self.txtCoverage.text = @"";
             selectedLocation = nil;
             selectedLocProduct = nil;
@@ -355,13 +359,14 @@
 - (IBAction)BeginEditing:(UITextField *)sender
 {
     curTextField = sender;
-    
+    if ([self isSelectable] == NO)
+    {
+        [self pauseRecording];
+    }
 }
 
 - (IBAction)EndEditing:(UITextField *)sender
 {
-    
-
     curTextField = nil;
     [sender resignFirstResponder];
 }
@@ -370,7 +375,6 @@
 {
     if (curTextField != nil)
     {
-        
         [curTextField resignFirstResponder];
         curTextField = nil;
     }
@@ -384,8 +388,8 @@
     
     if ([self isSelectable] == NO)
     {
-        [self showAlertForNotSelectable];
-        return;
+        [self pauseRecording];
+        //return;
     }
     FSJobViewController *vc = [[FSJobViewController alloc] initWithNibName:@"FSJobViewController" bundle:nil];
     vc.mode = MODE_RECORD;
@@ -400,8 +404,8 @@
     
     if ([self isSelectable] == NO)
     {
-        [self showAlertForNotSelectable];
-        return;
+        [self pauseRecording];
+        //return;
     }
     
     if (selectedJob == nil)
@@ -424,8 +428,8 @@
     
     if ([self isSelectable] == NO)
     {
-        [self showAlertForNotSelectable];
-        return;
+        [self pauseRecording];
+        //return;
     }
     
     if (selectedJob == nil)
@@ -458,8 +462,8 @@
     
     if ([self isSelectable] == NO)
     {
-        [self showAlertForNotSelectable];
-        return;
+        [self pauseRecording];
+        //return;
     }
     
     
@@ -469,9 +473,9 @@
     
     [self.view addSubview:jobSelector.view]; [self.view bringSubviewToFront:jobSelector.view];
     /*
-    [UIView transitionWithView:self.view duration:0.3 options:UIViewAnimationOptionCurveLinear animations:^ { [self.view addSubview:jobSelector.view]; [self.view bringSubviewToFront:jobSelector.view]; } completion:nil];
+     [UIView transitionWithView:self.view duration:0.3 options:UIViewAnimationOptionCurveLinear animations:^ { [self.view addSubview:jobSelector.view]; [self.view bringSubviewToFront:jobSelector.view]; } completion:nil];
      */
-
+    
 }
 
 - (IBAction)onLocationClick:(id)sender
@@ -496,8 +500,8 @@
     
     if ([self isSelectable] == NO)
     {
-        [self showAlertForNotSelectable];
-        return;
+        [self pauseRecording];
+        //return;
     }
     
     if (selectedJob == nil)
@@ -512,9 +516,9 @@
     
     [self.view addSubview:jobSelector.view]; [self.view bringSubviewToFront:jobSelector.view];
     /*
-    [UIView transitionWithView:self.view duration:0.3 options:UIViewAnimationOptionCurveLinear animations:^ { [self.view addSubview:jobSelector.view]; [self.view bringSubviewToFront:jobSelector.view]; } completion:nil];
+     [UIView transitionWithView:self.view duration:0.3 options:UIViewAnimationOptionCurveLinear animations:^ { [self.view addSubview:jobSelector.view]; [self.view bringSubviewToFront:jobSelector.view]; } completion:nil];
      */
-
+    
 }
 
 - (IBAction)onProductClick:(id)sender
@@ -545,8 +549,8 @@
     
     if ([self isSelectable] == NO)
     {
-        [self showAlertForNotSelectable];
-        return;
+        [self pauseRecording];
+        //return;
     }
     
     if (selectedJob == nil)
@@ -562,7 +566,7 @@
     
     [self.view addSubview:jobSelector.view]; [self.view bringSubviewToFront:jobSelector.view];
     /*
-    [UIView transitionWithView:self.view duration:0.3 options:UIViewAnimationOptionCurveLinear animations:^ { [self.view addSubview:jobSelector.view]; [self.view bringSubviewToFront:jobSelector.view]; } completion:nil];
+     [UIView transitionWithView:self.view duration:0.3 options:UIViewAnimationOptionCurveLinear animations:^ { [self.view addSubview:jobSelector.view]; [self.view bringSubviewToFront:jobSelector.view]; } completion:nil];
      */
 }
 
@@ -591,10 +595,10 @@
     selectedLocProduct = nil;
     
     [self setLabelSelected:self.lblJob text:job.jobName];
-   
+    
     [self setLabelNotSelected:self.lblLocation];
     [self setLabelNotSelected:self.lblProduct];
-
+    
     
     
     selectedLocation = [[DataManager sharedInstance] getDefaultLocationOfJob:job.jobID];
@@ -606,14 +610,14 @@
     else
     {
         /*
-        defaultLocation.locID = 0;
-        defaultLocation.locName = FMD_DEFAULT_LOCATIONNAME;
-        defaultLocation.locJobID = selectedJob.jobID;
-        
-        int retId = [[DataManager sharedInstance] addLocationToDatabase:defaultLocation];
-        defaultLocation = [[DataManager sharedInstance] getLocationFromID:retId];
-        
-        [self locationSelected:selectedLocation];
+         defaultLocation.locID = 0;
+         defaultLocation.locName = FMD_DEFAULT_LOCATIONNAME;
+         defaultLocation.locJobID = selectedJob.jobID;
+         
+         int retId = [[DataManager sharedInstance] addLocationToDatabase:defaultLocation];
+         defaultLocation = [[DataManager sharedInstance] getLocationFromID:retId];
+         
+         [self locationSelected:selectedLocation];
          */
     }
     
@@ -755,33 +759,33 @@
         [[DataManager sharedInstance] updateLocProductToDatabase:selectedLocProduct];
     }
     else
-    if (selectedProduct)
-    {
-        FSLocProduct *locProduct = [[DataManager sharedInstance] getLocProductWithProduct:selectedProduct locID:selectedLocation.locID];
-        if (locProduct)
+        if (selectedProduct)
         {
-            selectedLocProduct = locProduct;
-            selectedLocProduct.locProductCoverage = coverage;
-            [[DataManager sharedInstance] updateLocProductToDatabase:selectedLocProduct];
+            FSLocProduct *locProduct = [[DataManager sharedInstance] getLocProductWithProduct:selectedProduct locID:selectedLocation.locID];
+            if (locProduct)
+            {
+                selectedLocProduct = locProduct;
+                selectedLocProduct.locProductCoverage = coverage;
+                [[DataManager sharedInstance] updateLocProductToDatabase:selectedLocProduct];
+            }
+            else
+            {
+                // add this selected product to locproduct list for the specific location
+                int locproduct_id = [[DataManager sharedInstance] addLocProductToDatabaseWithProduct:selectedProduct locID:(long)selectedLocation.locID coverage:coverage];
+                selectedLocProduct = [[DataManager sharedInstance] getLocProductWithID:locproduct_id];
+            }
         }
         else
         {
-            // add this selected product to locproduct list for the specific location
-            int locproduct_id = [[DataManager sharedInstance] addLocProductToDatabaseWithProduct:selectedProduct locID:(long)selectedLocation.locID coverage:coverage];
-            selectedLocProduct = [[DataManager sharedInstance] getLocProductWithID:locproduct_id];
+            // add default product for specific location
+            FSLocProduct *locProduct = [[FSLocProduct alloc] init];
+            locProduct.locProductLocID = selectedLocation.locID;
+            locProduct.locProductName = FMD_DEFAULT_PRODUCTNAME;
+            locProduct.locProductCoverage = coverage;
+            locProduct.locProductID = [[DataManager sharedInstance] addLocProductToDatabase:locProduct];
+            
+            selectedLocProduct = [[DataManager sharedInstance] getLocProductWithID:locProduct.locProductID];
         }
-    }
-    else
-    {
-        // add default product for specific location
-        FSLocProduct *locProduct = [[FSLocProduct alloc] init];
-        locProduct.locProductLocID = selectedLocation.locID;
-        locProduct.locProductName = FMD_DEFAULT_PRODUCTNAME;
-        locProduct.locProductCoverage = coverage;
-        locProduct.locProductID = [[DataManager sharedInstance] addLocProductToDatabase:locProduct];
-        
-        selectedLocProduct = [[DataManager sharedInstance] getLocProductWithID:locProduct.locProductID];
-    }
     
     if (selectedLocProduct == nil)
     {
@@ -789,11 +793,12 @@
         return;
     }
     
-    self.txtCoverage.enabled = NO;
+    //self.txtCoverage.enabled = NO;
     
     
     
-    [[GlobalData sharedData] setSavedData:selectedJob.jobID selectedLocID:selectedLocation.locID selectedLocProductID:selectedLocProduct.locProductID];
+    [[GlobalData sharedData] saveSelection:selectedJob.jobID selectedLocID:selectedLocation.locID selectedLocProductID:selectedLocProduct.locProductID];
+    [[GlobalData sharedData] startRecording];
     
     //self.btnSummary.enabled = YES;
     self.btnCancel.enabled = YES;
@@ -805,6 +810,22 @@
     
 }
 
+
+/*
+ * is called when user change selection while recording
+ *
+ */
+- (void)pauseRecording
+{
+    [[GlobalData sharedData] pauseRecording];
+    
+    self.btnCancel.enabled = NO;
+    self.btnSave.enabled = YES;
+    
+    FSMainViewController *mainController = [FSMainViewController sharedController];
+    [mainController.scanManager stopScan];
+}
+
 - (IBAction)onCancelClicked:(id)sender
 {
     [CommonMethods playTapSound];
@@ -812,13 +833,7 @@
     if (curTextField != nil)
         [curTextField resignFirstResponder];
     
-    [[GlobalData sharedData] resetSavedData];
-    
-    //self.btnSummary.enabled = NO;
-    self.btnCancel.enabled = NO;
-    self.btnSave.enabled = YES;
-    
-    self.txtCoverage.enabled = YES;
+    [self pauseRecording];
     
 }
 
@@ -891,11 +906,13 @@
         
         readingVC = [[FSCurReadingsViewController alloc] initWithNibName:@"FSCurReadingsViewController" bundle:nil];
         [readingVC setCurLocProduct:selectedLocProduct];
+        readingVC.isFromRecorded = YES;
         [self.navigationController pushViewController:readingVC animated:YES];
     }
     else
     {
         [readingVC initDateTable];
+        [readingVC scrollToLastRow];
     }
 }
 

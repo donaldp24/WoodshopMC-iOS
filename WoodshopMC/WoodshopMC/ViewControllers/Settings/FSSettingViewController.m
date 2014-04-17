@@ -52,6 +52,8 @@
 
 - (IBAction)onTempF:(id)sender
 {
+    [CommonMethods playTapSound];
+
     [btntempC setSelected:NO];
     [btntempF setSelected:YES];
     _globalData.settingTemp = YES;
@@ -59,6 +61,8 @@
 
 - (IBAction)onTempC:(id)sender
 {
+    [CommonMethods playTapSound];
+
     [btntempF setSelected:NO];
     [btntempC setSelected:YES];
     _globalData.settingTemp = NO;
@@ -66,6 +70,8 @@
 
 - (IBAction)onAreaFT:(id)sender
 {
+    [CommonMethods playTapSound];
+
     [btnareaM setSelected:NO];
     [btnareaFT setSelected:YES];
     _globalData.settingArea = YES;
@@ -73,6 +79,8 @@
 
 - (IBAction)onAreaM:(id)sender
 {
+    [CommonMethods playTapSound];
+
     [btnareaFT setSelected:NO];
     [btnareaM setSelected:YES];
     _globalData.settingArea = NO;
@@ -80,6 +88,8 @@
 
 - (IBAction)onDateUS:(id)sender
 {
+    [CommonMethods playTapSound];
+
     [btndateEU setSelected:NO];
     [btndateUS setSelected:YES];
     [viewEuro setBackgroundColor:[UIColor colorWithRed:164.0f/255.0f green:149.0f/255.0f blue:130.0f/255.0f alpha:1.0f]];
@@ -89,6 +99,8 @@
 
 - (IBAction)onDateEU:(id)sender
 {
+    [CommonMethods playTapSound];
+
     [btndateUS setSelected:NO];
     [btndateEU setSelected:YES];
     [viewUS setBackgroundColor:[UIColor colorWithRed:164.0f/255.0f green:149.0f/255.0f blue:130.0f/255.0f alpha:1.0f]];

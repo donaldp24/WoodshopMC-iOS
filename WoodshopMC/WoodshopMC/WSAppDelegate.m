@@ -10,6 +10,7 @@
 #import "Global.h"
 #import "FSMainViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "iVersion.h"
 
 @implementation WSAppDelegate
 
@@ -33,6 +34,19 @@
     AudioSessionSetActive (true);
     
     return YES;
+}
+
++ (void) initialize
+{
+	// check app version
+    // https://github.com/nicklockwood/iVersion
+	[iVersion sharedInstance].applicationBundleID = [[NSBundle mainBundle] bundleIdentifier];
+    
+	[iVersion sharedInstance].checkAtLaunch = YES;
+	[iVersion sharedInstance].checkPeriod = 0;
+	[iVersion sharedInstance].remindPeriod = 0;
+    
+	[[iVersion sharedInstance] checkIfNewVersion];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
