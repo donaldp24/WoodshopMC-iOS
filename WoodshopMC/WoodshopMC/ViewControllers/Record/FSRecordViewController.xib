@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_title_bar.png" id="Pan-ta-BhB">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_title_bar_record.png" id="Pan-ta-BhB">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -53,16 +53,33 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fiv-MM-zgS">
-                    <rect key="frame" x="11" y="14" width="57" height="26"/>
+                    <rect key="frame" x="2" y="10" width="28" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="bt_title_bar_cancel_disabled.png">
+                    <state key="normal" image="peg_normal.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="disabled" image="bt_title_bar_cancel.png"/>
+                    <state key="disabled" image="peg_down.png"/>
                     <connections>
                         <action selector="onCancelClicked:" destination="-1" eventType="touchUpInside" id="JZL-wY-ZxG"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qbH-ws-5GY">
+                    <rect key="frame" x="0.0" y="2" width="64" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onCancelClicked:" destination="-1" eventType="touchUpInside" id="1K2-hh-NVq"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pause" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YtF-NC-S5H">
+                    <rect key="frame" x="30" y="15" width="34" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ors-0y-ZXo" userLabel="Button - Back">
                     <rect key="frame" x="247" y="3" width="67" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -76,16 +93,33 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yF8-M8-XSe">
-                    <rect key="frame" x="254" y="14" width="57" height="26"/>
+                    <rect key="frame" x="250" y="10" width="28" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="bt_title_bar_save_disabled.png">
+                    <state key="normal" image="peg_normal.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="disabled" image="bt_title_bar_save.png"/>
+                    <state key="disabled" image="peg_down.png"/>
                     <connections>
                         <action selector="onSaveClicked:" destination="-1" eventType="touchUpInside" id="1Hf-bL-lMY"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FYl-GK-I3e">
+                    <rect key="frame" x="250" y="2" width="70" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onSaveClicked:" destination="-1" eventType="touchUpInside" id="FRc-4N-xwe"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G9v-Oy-2YR">
+                    <rect key="frame" x="278" y="15" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_add_a_product_bg.png" id="sfa-TP-lbB">
                     <rect key="frame" x="15" y="92" width="290" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -368,13 +402,11 @@
         <image name="bg_overviewtail.png" width="598" height="24"/>
         <image name="bg_product_list_bar.png" width="601" height="63"/>
         <image name="bg_text.png" width="490" height="30"/>
-        <image name="bg_title_bar.png" width="640" height="112"/>
+        <image name="bg_title_bar_record.png" width="640" height="112"/>
         <image name="bt_Summary.png" width="336" height="72"/>
-        <image name="bt_title_bar_cancel.png" width="96" height="42"/>
-        <image name="bt_title_bar_cancel_disabled.png" width="96" height="42"/>
-        <image name="bt_title_bar_save.png" width="96" height="42"/>
-        <image name="bt_title_bar_save_disabled.png" width="96" height="42"/>
         <image name="ic_list_plus.png" width="26" height="23"/>
+        <image name="peg_down.png" width="56" height="56"/>
+        <image name="peg_normal.png" width="56" height="56"/>
         <image name="title_record_readings.png" width="344" height="44"/>
     </resources>
 </document>
