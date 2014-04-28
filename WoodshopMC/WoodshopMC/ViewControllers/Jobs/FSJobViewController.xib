@@ -10,6 +10,7 @@
                 <outlet property="archive_alertview" destination="rzG-3b-Bvn" id="4WS-SQ-xSf"/>
                 <outlet property="btnBack" destination="ntq-w6-RNT" id="h7M-LA-gX0"/>
                 <outlet property="btnFly" destination="1gc-Ww-H1u" id="KQD-UK-TOH"/>
+                <outlet property="btnFlyScope" destination="p2i-Tw-fgm" id="TRx-le-5tQ"/>
                 <outlet property="lblNoResult" destination="Csj-Nn-or8" id="rBZ-bg-Gj6"/>
                 <outlet property="tblJobs" destination="9gT-Sj-j7b" id="L3R-et-kbX"/>
                 <outlet property="txtEdit" destination="nv0-L9-c5N" id="a28-ou-K4m"/>

@@ -59,6 +59,7 @@
 - (void)initDateTable;
 
 - (void)scrollToLastRow;
+- (void)showWarning;
 
 
 @end

@@ -76,11 +76,15 @@ GlobalData *_globalData = nil;
     _settingArea = [self readBoolEntry:config key:@"Area" defaults:YES];
     _settingDateFormat = [self readEntry:config key:@"dateformat" defaults:US_DATEFORMAT];
     
+#if false
     _isSaved = [self readBoolEntry:config key:KEY_ISSAVED defaults:NO];
     _selectedJobID = [self readIntEntry:config key:KEY_SELECTEDJOBID defaults:0];
     _selectedLocID = [self readIntEntry:config key:KEY_SELECTEDLOCID defaults:0];
     _selectedLocProductID = [self readIntEntry:config key:KEY_SELECTEDLOCPRODUCTID defaults:0];
-    
+#else
+    [self resetSavedData];
+#endif
+
 #ifdef TESTFLIGHT_ENABLED
     [TestFlight passCheckpoint:@"loadInitData"];
 #endif

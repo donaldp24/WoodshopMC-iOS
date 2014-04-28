@@ -29,6 +29,8 @@ static CGFloat const kSubtitleHeight = 120.f;
 static CGFloat const kDateHeight = 50.f;
 static CGFloat const kRowHeight = 40.0f;
 static CGFloat const kStatisticHeight = 40.f;
+static CGFloat const kStatisticTableHeight = 100.f;
+static CGFloat const kLastReadingTableHeight = 100.f;
 static CGFloat const kGap = 10.f;
 
 @interface NSMutableString (Placeholder)
@@ -102,6 +104,8 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
                 NSMutableArray *arrayReadings = [[DataManager sharedInstance] getReadings:locProduct.locProductID withDate:date];
                 
                 [arrayDateReadings addObject:@{kDateKey: date, kReadingsKey: arrayReadings}];
+                if ([arrayReadings count] > 0)
+                    [arrayDateReadings addObject:@{kDateKey: date, kReadingsKey: arrayReadings}];
             }
             
             
@@ -304,12 +308,226 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
     ypos += 25;
 }
 
+- (void) renderStatisticsTable:(CGFloat)ypos arrayReadings:(NSMutableArray *)arrayReadings {
+    CGFloat xOrigin = 100;
+    CGFloat yOrigin = ypos;
+    CGFloat columnWidth = 160;
+    int numberOfColumns = 6;
+    
+    GlobalData *globalData = [GlobalData sharedData];
+    
+    // table header
+    /*
+     [self drawTableAt:CGPointMake(xOrigin, yOrigin)
+     withRowHeight:kRowHeight
+     andColumnWidth:columnWidth
+     andRowCount:1
+     andColumnCount:numberOfColumns];
+     */
+    
+    NSArray *labels = @[@"MC Avg (%)",
+                        @"MC High (%)",
+                        @"MC Low (%)",
+                        @"EMC Avg (%)",
+                        @"RH Avg (%)",
+                        [NSString stringWithFormat:@"Temp Avg (%@)", [globalData getTempUnit]]
+                        ];
+    
+    for (int i = 0; i < [labels count]; i++) {
+        [self drawText:labels[i]
+             withFrame:CGRectMake(xOrigin + 20 + columnWidth * i,
+                                  yOrigin + 10,
+                                  columnWidth - 40,
+                                  80)
+              withFont:[UIFont boldSystemFontOfSize:18.0f]];
+    }
+    
+    yOrigin += kRowHeight;
+    
+    /*
+     [self drawTableAt:CGPointMake(xOrigin, yOrigin)
+     withRowHeight:kRowHeight
+     andColumnWidth:columnWidth
+     andRowCount:1
+     andColumnCount:numberOfColumns];
+     */
+    
+    CGFloat mcavg = [FSReading getMCAvg:arrayReadings];
+    CGFloat mchigh = [FSReading getMCMax:arrayReadings];
+    CGFloat mclow = [FSReading getMCMin:arrayReadings];
+    CGFloat rhavg = [FSReading getRHAvg:arrayReadings];
+    CGFloat tempavg = [FSReading getTempAvg:arrayReadings];
+    CGFloat emcavg = [FSReading getEmcAvg:arrayReadings];
+    
+    // temperature
+    NSString *tempUnit = [globalData getTempUnit];
+    if (globalData.settingTemp == YES) //f
+        tempavg = [FSReading getFTemperature:tempavg];
+    
+    
+    
+    UIFont *textFont = [UIFont systemFontOfSize:14.0f];
+    
+    int startIndex = 0;
+    int i = 0;
+    
+    // MC Avg.
+    int column = 0;
+    [self drawText:[NSString stringWithFormat:@"%.1f", mcavg]
+         withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
+                              yOrigin + 10 + (kRowHeight * (i - startIndex)),
+                              columnWidth - 20,
+                              30)
+          withFont:textFont
+       placeholder:kEmptyPlaceholder];
+    
+    // MC High(%)
+    column++;
+    [self drawText:[NSString stringWithFormat:@"%.1f", mchigh]
+         withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
+                              yOrigin + 10 + (kRowHeight * (i - startIndex)),
+                              columnWidth - 20,
+                              30)
+          withFont:textFont
+       placeholder:kEmptyPlaceholder];
+    
+    // MC Low(%)
+    column++;
+    [self drawText:[NSString stringWithFormat:@"%.1f", mclow]
+         withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
+                              yOrigin + 10 + (kRowHeight * (i - startIndex)),
+                              columnWidth - 20,
+                              30)
+          withFont:textFont
+       placeholder:kEmptyPlaceholder];
+    
+    // EMC Avg(%)
+    column++;
+    [self drawText:[NSString stringWithFormat:@"%.1f", emcavg]
+         withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
+                              yOrigin + 10 + (kRowHeight * (i - startIndex)),
+                              columnWidth - 20,
+                              30)
+          withFont:textFont
+       placeholder:kEmptyPlaceholder];
+    
+    // RH Avg(%)
+    column++;
+    [self drawText:[NSString stringWithFormat:@"%d", ROUND(rhavg)]
+         withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
+                              yOrigin + 10 + (kRowHeight * (i - startIndex)),
+                              columnWidth - 20,
+                              30)
+          withFont:textFont
+       placeholder:kEmptyPlaceholder];
+    
+    // Temp Avg
+    column++;
+    [self drawText:[NSString stringWithFormat:@"%d", ROUND(tempavg)]
+         withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
+                              yOrigin + 10 + (kRowHeight * (i - startIndex)),
+                              columnWidth - 20,
+                              30)
+          withFont:textFont
+       placeholder:kEmptyPlaceholder];
+    
+}
+
+- (void) renderLastReadingTable:(CGFloat)ypos lastReading:(FSReading *)lastReading {
+    CGFloat xOrigin = 100;
+    CGFloat yOrigin = ypos;
+    CGFloat columnWidth = 240;
+    int numberOfColumns = 4;
+    
+    GlobalData *globalData = [GlobalData sharedData];
+    
+    // table header
+    /*
+     [self drawTableAt:CGPointMake(xOrigin, yOrigin)
+     withRowHeight:kRowHeight
+     andColumnWidth:columnWidth
+     andRowCount:1
+     andColumnCount:numberOfColumns];
+     */
+    
+    NSArray *labels = @[@"Material",
+                        @"s.g.",
+                        @"Depth",
+                        @"Battery (%)"
+                        ];
+    
+    for (int i = 0; i < [labels count]; i++) {
+        [self drawText:labels[i]
+             withFrame:CGRectMake(xOrigin + 20 + columnWidth * i,
+                                  yOrigin + 10,
+                                  columnWidth - 40,
+                                  80)
+              withFont:[UIFont boldSystemFontOfSize:18.0f]];
+    }
+    
+    yOrigin += kRowHeight;
+    
+    /*
+     [self drawTableAt:CGPointMake(xOrigin, yOrigin)
+     withRowHeight:kRowHeight
+     andColumnWidth:columnWidth
+     andRowCount:1
+     andColumnCount:numberOfColumns];
+     */
+    
+    
+    UIFont *textFont = [UIFont systemFontOfSize:14.0f];
+    
+    int startIndex = 0;
+    int i = 0;
+    
+    // Material
+    int column = 0;
+    [self drawText:[NSString stringWithFormat:@"%@", [FSReading getDisplayMaterial:lastReading.readMaterial]]
+         withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
+                              yOrigin + 10 + (kRowHeight * (i - startIndex)),
+                              columnWidth - 20,
+                              30)
+          withFont:textFont
+       placeholder:kEmptyPlaceholder];
+    
+    // s.g.
+    column++;
+    [self drawText:[NSString stringWithFormat:@"%ld", lastReading.readGravity]
+         withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
+                              yOrigin + 10 + (kRowHeight * (i - startIndex)),
+                              columnWidth - 20,
+                              30)
+          withFont:textFont
+       placeholder:kEmptyPlaceholder];
+    
+    // Depth
+    column++;
+    [self drawText:[NSString stringWithFormat:@"%@", [FSReading getDisplayDepth:lastReading.readDepth]]
+         withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
+                              yOrigin + 10 + (kRowHeight * (i - startIndex)),
+                              columnWidth - 20,
+                              30)
+          withFont:textFont
+       placeholder:kEmptyPlaceholder];
+    
+    // Battery(%)
+    column++;
+    [self drawText:[NSString stringWithFormat:@"%ld", lastReading.readBattery]
+         withFrame:CGRectMake(xOrigin + 10 + (columnWidth * column),
+                              yOrigin + 10 + (kRowHeight * (i - startIndex)),
+                              columnWidth - 20,
+                              30)
+          withFont:textFont
+       placeholder:kEmptyPlaceholder];
+}
+
 
 - (void) renderRows:(CGFloat)ypos data:(NSMutableArray *)data startIndex:(long)startIndex count:(long)count {
     
     CGFloat xOrigin = 100;
     CGFloat yOrigin = ypos;
-    CGFloat columnWidth = 150;
+    CGFloat columnWidth = 160;
     int numberOfColumns = 6;
     
     GlobalData *globalData = [GlobalData sharedData];
@@ -490,7 +708,7 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
                 yPos += kGap;
                 
                 // page break and render header
-                if ([self isInPage:yPos + kDateHeight] == NO) {
+                if ([self isInPage:yPos + kDateHeight + kStatisticTableHeight + kLastReadingTableHeight] == NO) {
                     [self drawPageNumber:currentPage++ + 1];
                     
                     [self renderHeader:aJob loc:loc];
@@ -502,8 +720,13 @@ static NSString * const kEmptyPlaceholder = @"EMPTY";
                 yPos += kDateHeight;
                 
                 // draw statistics
-                [self renderStatistics:yPos arrayReadings:arrayReadings];
-                yPos += kStatisticHeight;
+                //[self renderStatistics:yPos arrayReadings:arrayReadings];
+                //yPos += kStatisticHeight;
+                [self renderStatisticsTable:yPos arrayReadings:arrayReadings];
+                yPos += kStatisticTableHeight;
+                
+                [self renderLastReadingTable:yPos lastReading:[arrayReadings lastObject]];
+                yPos += kLastReadingTableHeight;
                 
                 
                 int m = 0;

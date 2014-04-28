@@ -70,7 +70,16 @@
             for (int j = 0; j < [arrayLocProduct count]; j++) {
                 FSLocProduct *locProduct = (FSLocProduct *)[arrayLocProduct objectAtIndex:j];
                 NSMutableArray *arrayReadingDates = [[DataManager sharedInstance] getAllReadingDates:locProduct.locProductID];
-                if ([arrayReadingDates count] > 0)
+                NSMutableArray *arrayReadingDatesHasData = [[NSMutableArray alloc] init];
+                for (int k = 0; k < [arrayReadingDates count]; k++) {
+                    NSDate *date = [arrayReadingDates objectAtIndex:k];
+                    if ([[DataManager sharedInstance] getReadingsCount:locProduct.locProductID withDate:date] > 0)
+                    {
+                        [arrayReadingDatesHasData addObject:date];
+                    }
+                }
+                if ([arrayReadingDatesHasData count] > 0)
+
                 {
                     FSReportListNodeObject *node = [[FSReportListNodeObject alloc] init];
                     node.loc = loc;

@@ -74,12 +74,16 @@
         
         if (self.mode == MODE_RECORD)
         {
-            [self.btnFly setHidden:NO];
+            [self.btnFly setHidden:YES];
+            [self.btnFlyScope setHidden:YES];
+
             [self.btnBack setHidden:NO];
         }
         else
         {
             [self.btnBack setHidden:YES];
+            
+            [self.btnFlyScope setHidden:NO];
             [self.btnFly setHidden:NO];
         }
     }
@@ -346,7 +350,16 @@
 - (IBAction)onArchive_OK:(id)sender
 {
     [CommonMethods playTapSound];
+
+    // check this job is recording now
+    GlobalData *globalData = [GlobalData sharedData];
+    if (globalData.isSaved && globalData.selectedJobID == curJob.jobID)
+    {
+        [CommonMethods showAlertUsingTitle:@"" andMessage:@"Recording is for this job now. \nPlease 'Cancel' recording first to archive this job."];
+        return;
+    }
     
+
     [curJob setJobArchived:1];
     [[DataManager sharedInstance] updateJobToDatabase:curJob];
     [self initTableData];

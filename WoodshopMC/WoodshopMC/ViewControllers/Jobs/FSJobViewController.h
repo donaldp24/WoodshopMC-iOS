@@ -23,6 +23,7 @@
 @property (nonatomic, assign) IBOutlet UITableView *tblJobs;
 
 @property (nonatomic, assign) IBOutlet UIButton *btnFly;
+@property (nonatomic, assign) IBOutlet UIButton *btnFlyScope;
 @property (nonatomic, assign) IBOutlet UIButton *btnBack;
 @property (nonatomic, assign) IBOutlet UIView *viewTopAdd;
 @property (nonatomic, assign) IBOutlet UIView *viewSearch;

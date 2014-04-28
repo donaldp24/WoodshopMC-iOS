@@ -298,6 +298,10 @@
 		D34E658518F405A90046ACEC /* bg_overviewup.png in Resources */ = {isa = PBXBuildFile; fileRef = D34E658418F405A90046ACEC /* bg_overviewup.png */; };
 		D34E658718F406A70046ACEC /* bg_overviewdown.png in Resources */ = {isa = PBXBuildFile; fileRef = D34E658618F406A70046ACEC /* bg_overviewdown.png */; };
 		D34E658918F40A400046ACEC /* bt_job_delete_brown.png in Resources */ = {isa = PBXBuildFile; fileRef = D34E658818F40A400046ACEC /* bt_job_delete_brown.png */; };
+		D3B1EA3E190E5ECA00996DE5 /* AutoMessageBox_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B1EA3A190E5ECA00996DE5 /* AutoMessageBox_ipad.xib */; };
+		D3B1EA3F190E5ECA00996DE5 /* AutoMessageBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B1EA3C190E5ECA00996DE5 /* AutoMessageBox.m */; };
+		D3B1EA40190E5ECA00996DE5 /* AutoMessageBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B1EA3D190E5ECA00996DE5 /* AutoMessageBox.xib */; };
+		D3B1EA42190E642B00996DE5 /* msg-back.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B1EA41190E642B00996DE5 /* msg-back.png */; };
 		D3F5C0B218F6775500B67807 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F5C0B118F6775500B67807 /* Default.png */; };
 		D3F5C0B418F67B3900B67807 /* bg_overviewtail.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F5C0B318F67B3900B67807 /* bg_overviewtail.png */; };
 		D3F9F41618FEFDAB001804AE /* title_todaysreadings.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F9F41518FEFDAB001804AE /* title_todaysreadings.png */; };
@@ -684,6 +688,11 @@
 		D34E658418F405A90046ACEC /* bg_overviewup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_overviewup.png; path = resource/new/bg_overviewup.png; sourceTree = "<group>"; };
 		D34E658618F406A70046ACEC /* bg_overviewdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_overviewdown.png; path = resource/new/bg_overviewdown.png; sourceTree = "<group>"; };
 		D34E658818F40A400046ACEC /* bt_job_delete_brown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bt_job_delete_brown.png; path = resource/new/bt_job_delete_brown.png; sourceTree = "<group>"; };
+		D3B1EA3A190E5ECA00996DE5 /* AutoMessageBox_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AutoMessageBox_ipad.xib; path = MessageBox/AutoMessageBox_ipad.xib; sourceTree = "<group>"; };
+		D3B1EA3B190E5ECA00996DE5 /* AutoMessageBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoMessageBox.h; path = MessageBox/AutoMessageBox.h; sourceTree = "<group>"; };
+		D3B1EA3C190E5ECA00996DE5 /* AutoMessageBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AutoMessageBox.m; path = MessageBox/AutoMessageBox.m; sourceTree = "<group>"; };
+		D3B1EA3D190E5ECA00996DE5 /* AutoMessageBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AutoMessageBox.xib; path = MessageBox/AutoMessageBox.xib; sourceTree = "<group>"; };
+		D3B1EA41190E642B00996DE5 /* msg-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "msg-back.png"; path = "resource/new/msg-back.png"; sourceTree = "<group>"; };
 		D3F5C0B118F6775500B67807 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = resource/Default.png; sourceTree = "<group>"; };
 		D3F5C0B318F67B3900B67807 /* bg_overviewtail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_overviewtail.png; path = resource/new/bg_overviewtail.png; sourceTree = "<group>"; };
 		D3F9F41518FEFDAB001804AE /* title_todaysreadings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title_todaysreadings.png; path = resource/new/title_todaysreadings.png; sourceTree = "<group>"; };
@@ -1051,6 +1060,7 @@
 		D301D2C918F3435B00EEBCA5 /* new */ = {
 			isa = PBXGroup;
 			children = (
+				D3B1EA41190E642B00996DE5 /* msg-back.png */,
 				D313B27619004B4400FE2931 /* peg_down.png */,
 				D313B27719004B4400FE2931 /* peg_normal.png */,
 				D3157D0218FF66F100F7E612 /* title_locations.png */,
@@ -1301,6 +1311,7 @@
 		D32099EE18F2AFA200C07C17 /* WoodshopMC */ = {
 			isa = PBXGroup;
 			children = (
+				D3B1EA39190E5E9200996DE5 /* MessageBox */,
 				D3157D0A18FF6E4100F7E612 /* iVersion */,
 				D301D2B418F3432C00EEBCA5 /* Resource */,
 				D301D29618F3418300EEBCA5 /* Database */,
@@ -1346,6 +1357,17 @@
 				D3209A1318F2AFA200C07C17 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3B1EA39190E5E9200996DE5 /* MessageBox */ = {
+			isa = PBXGroup;
+			children = (
+				D3B1EA3A190E5ECA00996DE5 /* AutoMessageBox_ipad.xib */,
+				D3B1EA3B190E5ECA00996DE5 /* AutoMessageBox.h */,
+				D3B1EA3C190E5ECA00996DE5 /* AutoMessageBox.m */,
+				D3B1EA3D190E5ECA00996DE5 /* AutoMessageBox.xib */,
+			);
+			name = MessageBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1432,6 +1454,7 @@
 				D301D39918F3438900EEBCA5 /* bg_select_type_nl.png in Resources */,
 				D301D23118F33E9E00EEBCA5 /* FSSettingViewController.xib in Resources */,
 				D301D33118F3437D00EEBCA5 /* bt_fly.png in Resources */,
+				D3B1EA42190E642B00996DE5 /* msg-back.png in Resources */,
 				D3F5C0B418F67B3900B67807 /* bg_overviewtail.png in Resources */,
 				D301D33E18F3437D00EEBCA5 /* t_readings.png in Resources */,
 				D301D32618F3437D00EEBCA5 /* bt_arrow_right1.png in Resources */,
@@ -1515,6 +1538,7 @@
 				D301D2BF18F3435200EEBCA5 /* Default-568h.png in Resources */,
 				D301D20918F33E3B00EEBCA5 /* FSMainViewController.xib in Resources */,
 				D301D3AC18F3438900EEBCA5 /* bt_Summary.png in Resources */,
+				D3B1EA40190E5ECA00996DE5 /* AutoMessageBox.xib in Resources */,
 				D34E658718F406A70046ACEC /* bg_overviewdown.png in Resources */,
 				D301D3BB18F3438900EEBCA5 /* segment_m_selected.png in Resources */,
 				D301D33C18F3437D00EEBCA5 /* t_Jobs.png in Resources */,
@@ -1594,6 +1618,7 @@
 				D301D25018F340F700EEBCA5 /* Reader-Button-H@2x.png in Resources */,
 				D301D3DA18F3439400EEBCA5 /* tap_1.png in Resources */,
 				D3F9F43218FF3073001804AE /* iTunesArtwork@2x in Resources */,
+				D3B1EA3E190E5ECA00996DE5 /* AutoMessageBox_ipad.xib in Resources */,
 				D34E656C18F3D6350046ACEC /* title_record_readings.png in Resources */,
 				D3157D0E18FF6E4A00F7E612 /* iVersion.bundle in Resources */,
 				D301D3A418F3438900EEBCA5 /* bt_Products_nl.png in Resources */,
@@ -1703,6 +1728,7 @@
 				D301D1ED18F33E1600EEBCA5 /* FSPopView.m in Sources */,
 				D301D21218F33E4400EEBCA5 /* FSProductViewController.m in Sources */,
 				D301D20118F33E3100EEBCA5 /* FSArchiveJobViewController.m in Sources */,
+				D3B1EA3F190E5ECA00996DE5 /* AutoMessageBox.m in Sources */,
 				D3157D0F18FF6E4A00F7E612 /* iVersion.m in Sources */,
 				D301D28F18F3410600EEBCA5 /* ReaderThumbRequest.m in Sources */,
 				D301D1F118F33E1600EEBCA5 /* FSReportCell.m in Sources */,

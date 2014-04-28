@@ -16,6 +16,7 @@
 #import "GlobalData.h"
 //----
 #import "Defines.h"
+#import "AutoMessageBox.h"
 
 @interface FSCurReadingsViewController ()
 
@@ -165,6 +166,97 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showWarning
+{
+    NSString *strTitleFontName = @"HelveticaNeue-Light";
+    NSString *strBodyFontName = @"HelveticaNeue";
+    CGFloat titleFontSize = 17.0;
+    CGFloat bodyFontSize = 13.0;
+    UIColor *titleColor = [UIColor colorWithRed:251/255.0 green:181/255.0 blue:46/255.0 alpha:1.0];
+    UIColor *bodyColor = [UIColor colorWithRed:251/255.0 green:181/255.0 blue:46/255.0 alpha:1.0];
+    
+    
+    if ([arrOverallReadings count] >= 2)
+    {
+        FSReading *prevReading = (FSReading *)[arrOverallReadings objectAtIndex:[arrOverallReadings count] - 2];
+        FSReading *lastReading = (FSReading *)[arrOverallReadings lastObject];
+        
+        BOOL isShowMsg = NO;
+        NSString *titleText = @"";
+        NSString *bodyText = @"";
+        if (prevReading.readGravity != lastReading.readGravity && prevReading.readDepth != lastReading.readDepth)
+        {
+            titleText = @"s.g. and Depth are changed\n";
+            bodyText = [NSString stringWithFormat:@" s.g. : %ld => %ld \n depth : %@ => %@", prevReading.readGravity, lastReading.readGravity, [FSReading getDisplayDepth: prevReading.readDepth], [FSReading getDisplayDepth: lastReading.readDepth]];
+            
+            isShowMsg = YES;
+            
+        }
+        else if (prevReading.readGravity != lastReading.readGravity)
+        {
+            titleText = @"s.g. is changed\n";
+            bodyText = [NSString stringWithFormat:@"\n s.g. : %ld => %ld", prevReading.readGravity, lastReading.readGravity];
+            
+            
+            isShowMsg = YES;
+        }
+        else if (prevReading.readDepth != lastReading.readDepth)
+        {
+            titleText = @"Depth is changed\n";
+            bodyText = [NSString stringWithFormat:@"\n depth : %@ => %@", [FSReading getDisplayDepth: prevReading.readDepth], [FSReading getDisplayDepth: lastReading.readDepth]];
+            
+            
+            isShowMsg = YES;
+        }
+        
+        if (isShowMsg)
+        {
+            NSDictionary *titleAttrs = @{NSFontAttributeName:[UIFont fontWithName:strTitleFontName size:titleFontSize], NSForegroundColorAttributeName:titleColor};
+            NSDictionary *bodyAttrs = @{NSFontAttributeName:[UIFont fontWithName:strBodyFontName size:bodyFontSize], NSForegroundColorAttributeName:bodyColor};
+            
+            NSMutableAttributedString *termsText = [[NSMutableAttributedString alloc] initWithString:titleText attributes:titleAttrs];
+            NSAttributedString *bodyAttString = [[NSAttributedString alloc] initWithString:bodyText attributes:bodyAttrs];
+            
+            [termsText appendAttributedString:bodyAttString];
+            
+            [AutoMessageBox AutoMsgInView:self.view withText:termsText];
+        }
+    }
+    else
+    {
+        int count = [[DataManager sharedInstance] getReadingsCount:self.curLocProduct.locProductID];
+        if (count == 1)
+        {
+#if false
+            titleFontSize = 16.0;
+            bodyFontSize = 12.0;
+            
+            NSString *titleText = @"First reading for this Product!\n";
+            NSString *bodyText = @"";
+            if (self.curLocProduct.locProductType == FSProductTypeFinished)
+            {
+                bodyText = [NSString stringWithFormat:@" NWFA Guidelines require 40 readings \n per 1000sqft for finished material"];
+            }
+            else
+            {
+                bodyText = [NSString stringWithFormat:@" NWFA Guidelines require 20 readings \n per 1000sqft for subfloor material"];
+            }
+            
+            
+            NSDictionary *titleAttrs = @{NSFontAttributeName:[UIFont fontWithName:strTitleFontName size:titleFontSize], NSForegroundColorAttributeName:titleColor};
+            NSDictionary *bodyAttrs = @{NSFontAttributeName:[UIFont fontWithName:strBodyFontName size:bodyFontSize], NSForegroundColorAttributeName:bodyColor};
+            
+            NSMutableAttributedString *termsText = [[NSMutableAttributedString alloc] initWithString:titleText attributes:titleAttrs];
+            NSAttributedString *bodyAttString = [[NSAttributedString alloc] initWithString:bodyText attributes:bodyAttrs];
+            
+            [termsText appendAttributedString:bodyAttString];
+            
+            [AutoMessageBox AutoMsgInView:self.view withText:termsText];
+#endif
+        }
+    }
 }
 
 - (void)initDateTable

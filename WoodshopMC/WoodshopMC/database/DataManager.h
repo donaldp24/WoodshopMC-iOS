@@ -75,6 +75,7 @@
 
 - (NSMutableArray *)getAllReadingDates:(long)locProductID;
 - (NSMutableArray *)getReadings:(long)locProductID withDate:(NSDate *)date;
+- (NSInteger)getReadingsCount:(long)locProductID withDate:(NSDate *)date;
 - (NSInteger)getReadingsCount:(long)locProductID;
 - (int)addReadingToDatabase:(FSReading *)reading;
 - (BOOL)updateReadingToDatabase:(FSReading *)reading;

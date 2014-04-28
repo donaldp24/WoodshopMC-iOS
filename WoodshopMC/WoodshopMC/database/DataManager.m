@@ -44,7 +44,31 @@ static DataManager *sharedManager;
         _database = [[FMDatabase alloc] initWithPath:databasePath];
         [_database open];
         
+        BOOL isDbCreate = NO;
         if (isDbExist == NO)
+        {
+            isDbCreate = YES;
+        }
+        else
+        {
+            NSString *currVersion = @"0";
+            FMResultSet *results = [_database executeQuery:@"SELECT * FROM tbl_version"];
+            while ([results next]) {
+                currVersion = [results stringForColumn:@"version_no"];
+                break;
+            }
+            if ([currVersion isEqualToString:@"1"]) {
+                // delete original db
+                /*
+                 [_database close];
+                 [filemgr removeItemAtPath:databasePath error:nil];
+                 [_database open];
+                 isDbCreate = YES;
+                 */
+            }
+        }
+        
+        if (isDbCreate == YES)
         {
             char *sql_job = "CREATE TABLE tbl_job(job_id INTEGER PRIMARY KEY AUTOINCREMENT, job_name TEXT, job_archived INTEGER, deleted INTEGER);";
             char *sql_location = "CREATE TABLE tbl_location(location_id INTEGER PRIMARY KEY AUTOINCREMENT, location_jobid INTEGER, location_name TEXT, deleted INTEGER);";
@@ -64,19 +88,6 @@ static DataManager *sharedManager;
             bRet = [_database executeUpdate:sql_version_register];
             if (bRet == NO)
                 bRet = bRet;
-        }
-        else
-        {
-            NSString *currVersion = @"0";
-            FMResultSet *results = [_database executeQuery:@"SELECT * FROM tbl_version"];
-            while ([results next]) {
-                currVersion = [results stringForColumn:@"version_no"];
-                
-                break;
-            }
-            if ([currVersion isEqualToString:@"1"]) {
-                currVersion = currVersion;
-            }
         }
     }
 
@@ -581,6 +592,18 @@ static DataManager *sharedManager;
         [arrReadingsList addObject:reading];
     }
     return arrReadingsList;
+}
+
+- (NSInteger)getReadingsCount:(long)locProductID withDate:(NSDate *)date
+{
+    NSString *strDate = [CommonMethods date2str:date withFormat:DATE_FORMAT];
+    NSMutableString *sql = [NSMutableString stringWithFormat:@"SELECT count(*) FROM tbl_reading WHERE deleted = 0 AND read_locproductid = %ld AND SUBSTR(read_date, 1, 10) = '%@'", locProductID, strDate];
+    FMResultSet *results = [_database executeQuery:sql];
+    
+    while ([results next]) {
+        return [results intForColumn:@"count(*)"];
+    }
+    return 0;
 }
 
 - (NSInteger)getReadingsCount:(long)locProductID
