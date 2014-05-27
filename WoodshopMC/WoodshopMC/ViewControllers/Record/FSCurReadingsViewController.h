@@ -12,7 +12,9 @@
 #import <MessageUI/MessageUI.h>
 #import "FSReading.h"
 
-@interface FSCurReadingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+#import "GAITrackedViewController.h"
+
+@interface FSCurReadingsViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, assign) IBOutlet UITableView *tblDetal;
 

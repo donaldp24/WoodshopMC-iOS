@@ -10,13 +10,15 @@
 #import "FSJob.h"
 #import "FSJobCell.h"
 
+#import "GAITrackedViewController.h"
+
 @protocol FSJobSelectDelegate <NSObject>
 
 - (void)jobSelected:(FSJob *)job;
 
 @end
 
-@interface FSJobViewController : UIViewController <UITableViewDelegate, UITextFieldDelegate, FSJobCellDelegate>
+@interface FSJobViewController : GAITrackedViewController <UITableViewDelegate, UITextFieldDelegate, FSJobCellDelegate>
 
 @property (nonatomic) BOOL isEditing;
 

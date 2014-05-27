@@ -13,11 +13,13 @@
 #import "FSLocation.h"
 #import "FSProduct.h"
 
+#import "GAITrackedViewController.h"
+
 // define this value not for hiding toolbars/pagebars
 
 #import "ReaderViewController.h"
 
-@interface FSReportViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MFMailComposeViewControllerDelegate, UIPrintInteractionControllerDelegate, ReaderViewControllerDelegate>
+@interface FSReportViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MFMailComposeViewControllerDelegate, UIPrintInteractionControllerDelegate, ReaderViewControllerDelegate>
 
 @property (nonatomic, assign) IBOutlet UITableView *tblMain;
 @property (nonatomic, assign) IBOutlet UILabel *lblJob;

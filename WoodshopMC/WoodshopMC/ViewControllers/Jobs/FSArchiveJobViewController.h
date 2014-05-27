@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "FSJobViewController.h"
 
-@interface FSArchiveJobViewController : UIViewController <UITableViewDelegate, UITextFieldDelegate>
+#import "GAITrackedViewController.h"
+
+@interface FSArchiveJobViewController : GAITrackedViewController <UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, assign) IBOutlet UITableView *tblArchives;
 @property (nonatomic, assign) IBOutlet UITextField *txtTop;

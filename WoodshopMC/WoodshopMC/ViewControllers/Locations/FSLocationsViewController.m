@@ -57,6 +57,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    self.screenName = @"Location Screen";
+    
     [self initTableData];
 }
 

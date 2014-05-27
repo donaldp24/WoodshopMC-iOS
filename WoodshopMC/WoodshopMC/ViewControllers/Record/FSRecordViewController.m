@@ -130,13 +130,11 @@
     if (globalData.isSaved == YES &&
         (selectedJob != nil && selectedLocation != nil && selectedLocProduct != nil) )
     {
-        self.btnSave.enabled = NO;
-        self.btnCancel.enabled = YES;
+        [self setRecordingStatus:YES];
     }
     else
     {
-        self.btnSave.enabled = YES;
-        self.btnCancel.enabled = NO;
+        [self setRecordingStatus:NO];
     }
     
     if (globalData.settingArea == YES) //ft
@@ -156,11 +154,13 @@
     
     curTextField = nil;
     
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    self.screenName = @"Record Screen";
+    
     readingVC = nil;
     GlobalData *globalData = [GlobalData sharedData];
     
@@ -235,8 +235,8 @@
         //if (globalData.isSaved)
         //{
         [globalData resetSavedData];
-        self.btnCancel.enabled = NO;
-        self.btnSave.enabled = YES;
+        
+        [self setRecordingStatus:NO];
         //self.btnSummary.enabled = NO;
         //}
         
@@ -807,8 +807,7 @@
     [[GlobalData sharedData] startRecording];
     
     //self.btnSummary.enabled = YES;
-    self.btnCancel.enabled = YES;
-    self.btnSave.enabled = NO;
+    [self setRecordingStatus:YES];
     
     FSMainViewController *mainController = [FSMainViewController sharedController];
     [mainController.scanManager stopScan];
@@ -825,8 +824,7 @@
 {
     [[GlobalData sharedData] pauseRecording];
     
-    self.btnCancel.enabled = NO;
-    self.btnSave.enabled = YES;
+    [self setRecordingStatus:NO];
     
     FSMainViewController *mainController = [FSMainViewController sharedController];
     [mainController.scanManager stopScan];
@@ -968,5 +966,24 @@
     [label setFont:[UIFont boldSystemFontOfSize:16.0]];
 }
 
+- (void)setRecordingStatus:(BOOL)bRecording
+{
+    if (bRecording)
+    {
+        self.btnSave.enabled = NO;
+        self.btnCancel.enabled = YES;
+        
+        [self.lblPause setFont:[UIFont systemFontOfSize:11]];
+        [self.lblRecord setFont:[UIFont boldSystemFontOfSize:12]];
+    }
+    else
+    {
+        self.btnSave.enabled = YES;
+        self.btnCancel.enabled = NO;
+        
+        [self.lblPause setFont:[UIFont boldSystemFontOfSize:12]];
+        [self.lblRecord setFont:[UIFont systemFontOfSize:11]];
+    }
+}
 
 @end

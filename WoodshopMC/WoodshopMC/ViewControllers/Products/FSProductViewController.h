@@ -11,13 +11,15 @@
 #import "FSProduct.h"
 #import "FSProductCell.h"
 
+#import "GAITrackedViewController.h"
+
 @protocol FSProductSelectDelegate <NSObject>
 
 - (void)productSelected:(FSProduct *)product;
 
 @end
 
-@interface FSProductViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, FSProductCellDelegate>
+@interface FSProductViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, FSProductCellDelegate>
 
 @property (nonatomic) BOOL isEditing;
 

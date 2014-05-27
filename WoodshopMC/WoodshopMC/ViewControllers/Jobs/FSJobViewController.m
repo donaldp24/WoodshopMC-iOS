@@ -67,6 +67,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.screenName = @"Job Screen";
+    
     if (self.mode == MODE_JOBMANAGEMENT || self.mode == MODE_RECORD)
     {
         [self.viewTopAdd setHidden:NO];

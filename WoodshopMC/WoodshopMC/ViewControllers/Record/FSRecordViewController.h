@@ -14,7 +14,9 @@
 #import "FSCurReadingsViewController.h"
 #import "FSSelectViewController.h"
 
-@interface FSRecordViewController : UIViewController <UITextFieldDelegate, FSJobSelectDelegate, FSLocationSelectDelegate, FSLocProductSelectDelegate> {
+#import "GAITrackedViewController.h"
+
+@interface FSRecordViewController : GAITrackedViewController <UITextFieldDelegate, FSJobSelectDelegate, FSLocationSelectDelegate, FSLocProductSelectDelegate> {
     
     FSJob *selectedJob;
     FSLocation *selectedLocation;
@@ -49,6 +51,9 @@
 @property (nonatomic, retain) IBOutlet UIButton *btnSummary;
 
 @property (nonatomic, strong) IBOutlet UIButton *btnBg;
+
+@property (nonatomic, strong) IBOutlet UILabel *lblRecord;
+@property (nonatomic, strong) IBOutlet UILabel *lblPause;
 
 // actions
 - (IBAction)onSelJob:(id)sender;
@@ -85,4 +90,5 @@
 // save incoming data
 - (void)saveNewData:(NSDictionary *)data;
 - (void)showReadingView;
+- (void)setRecordingStatus:(BOOL)bRecording;
 @end

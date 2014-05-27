@@ -50,6 +50,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.screenName = @"Archived Job Screen";
+    
     [self initTableData];
 }
 

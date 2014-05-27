@@ -12,6 +12,8 @@
 #import "FSLocation.h"
 #import "FSProductCell.h"
 
+#import "GAITrackedViewController.h"
+
 @protocol FSLocProductSelectDelegate <NSObject>
 
 - (void)locationAdded:(FSLocation *)loc;
@@ -20,7 +22,7 @@
 
 @end
 
-@interface FSLocProductViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, FSProductCellDelegate>
+@interface FSLocProductViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, FSProductCellDelegate>
 
 @property (nonatomic) BOOL isEditing;
 

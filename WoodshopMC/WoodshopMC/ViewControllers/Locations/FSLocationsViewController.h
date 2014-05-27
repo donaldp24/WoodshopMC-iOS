@@ -12,13 +12,15 @@
 #import "FSLocationCell.h"
 #import "FSLocation.h"
 
+#import "GAITrackedViewController.h"
+
 @protocol FSLocationSelectDelegate <NSObject>
 
 - (void)locationSelected:(FSLocation *)loc;
 
 @end
 
-@interface FSLocationsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FSLocationCellDelegate> {
+@interface FSLocationsViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FSLocationCellDelegate> {
     //
 }
 

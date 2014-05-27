@@ -52,6 +52,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.screenName = @"Report Screen";
     
     arrayJob = [[NSMutableArray alloc] init];
     self.lblJob.text = @"";

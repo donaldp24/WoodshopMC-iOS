@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FSRecordViewController">
@@ -16,7 +16,9 @@
                 <outlet property="lblHintProduct" destination="t2a-k6-S1F" id="M5x-gg-9G0"/>
                 <outlet property="lblJob" destination="h3y-JH-9O7" id="AVg-S6-qlQ"/>
                 <outlet property="lblLocation" destination="nFE-9A-3UP" id="Use-lc-ETz"/>
+                <outlet property="lblPause" destination="YtF-NC-S5H" id="q7L-Cp-Nrq"/>
                 <outlet property="lblProduct" destination="bbL-1C-pJf" id="T5O-Lk-o6m"/>
+                <outlet property="lblRecord" destination="G9v-Oy-2YR" id="ZiM-me-5aa"/>
                 <outlet property="lblUnitFt" destination="igA-nJ-sIF" id="lV1-5O-3bE"/>
                 <outlet property="lblUnitM" destination="oj8-fQ-uRK" id="Q3J-rX-KqG"/>
                 <outlet property="txtCoverage" destination="on9-PL-LpW" id="Cui-wx-Jn0"/>
@@ -53,7 +55,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fiv-MM-zgS">
-                    <rect key="frame" x="2" y="10" width="28" height="28"/>
+                    <rect key="frame" x="-1" y="10" width="28" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="peg_normal.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,7 +77,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pause" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YtF-NC-S5H">
-                    <rect key="frame" x="30" y="15" width="34" height="21"/>
+                    <rect key="frame" x="27" y="15" width="41" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <nil key="highlightedColor"/>
@@ -93,7 +95,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yF8-M8-XSe">
-                    <rect key="frame" x="250" y="10" width="28" height="28"/>
+                    <rect key="frame" x="249" y="10" width="28" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="peg_normal.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -115,7 +117,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G9v-Oy-2YR">
-                    <rect key="frame" x="278" y="15" width="42" height="21"/>
+                    <rect key="frame" x="277" y="15" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <nil key="highlightedColor"/>

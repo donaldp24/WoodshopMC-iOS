@@ -52,6 +52,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.screenName = @"Loc.Product Screen";
+    
     [self initTable];
     
     NSString *jobName = @"";

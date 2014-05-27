@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FSSettingViewController : UIViewController
+#import "GAITrackedViewController.h"
+
+@interface FSSettingViewController : GAITrackedViewController
 
 @property (nonatomic, assign) IBOutlet UIButton *btntempF;
 @property (nonatomic, assign) IBOutlet UIButton *btntempC;

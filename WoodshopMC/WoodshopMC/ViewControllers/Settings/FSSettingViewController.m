@@ -50,6 +50,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Settings Screen";
+}
+
+
 - (IBAction)onTempF:(id)sender
 {
     [CommonMethods playTapSound];
