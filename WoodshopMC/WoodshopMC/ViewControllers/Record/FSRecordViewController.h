@@ -88,7 +88,7 @@
 - (IBAction)onBgClicked:(id)sender;
 
 // save incoming data
-- (void)saveNewData:(NSDictionary *)data;
+- (void)saveNewData:(FSReading *)reading;
 - (void)showReadingView;
 - (void)setRecordingStatus:(BOOL)bRecording;
 @end

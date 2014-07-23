@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 #ifndef ROUND
-#define ROUND(a) ((int)(a + 0.5))
+#define ROUND(a) ((a) < 0 ?((int)((a) - 0.5)) : ((int)((a) + 0.5)))
 #endif
 
 @interface CommonMethods : NSObject {

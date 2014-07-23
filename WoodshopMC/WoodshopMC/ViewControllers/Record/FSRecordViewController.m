@@ -870,24 +870,13 @@
     [CommonMethods showAlertUsingTitle:@"" andMessage:@"Cannot change selection, \n Please press 'Cancel' button to stop recording first!"];
 }
 
-- (void)saveNewData:(NSDictionary *)data
+- (void)saveNewData:(FSReading *)reading
 {
     if (selectedLocProduct == nil)
         return;
-    FSReading *reading = [[FSReading alloc] init];
-    reading.readID = 0;
+
     reading.readLocProductID = selectedLocProduct.locProductID;
-    reading.readTimestamp = [CommonMethods str2date:[data objectForKey:kSensorDataReadingTimestampKey] withFormat:DATETIME_FORMAT];
-    reading.readUuid = [data objectForKey:kSensorDataUuidKey];
-    reading.readRH = (long)[[data objectForKey:kSensorDataRHKey] intValue];
-    reading.readConvRH = (double)[[data objectForKey:kSensorDataConvRHKey] floatValue];
-    reading.readTemp = (long)[[data objectForKey:kSensorDataTemperatureKey] intValue];
-    reading.readConvTemp = (double)[[data objectForKey:kSensorDataConvTempKey] floatValue];
-    reading.readBattery = (long)[[data objectForKey:kSensorDataBatteryKey] intValue];
-    reading.readDepth = (long)[[data objectForKey:kSensorDataDepthKey] intValue];
-    reading.readGravity = (long)[[data objectForKey:kSensorDataGravityKey] intValue];
-    reading.readMaterial = (long)[[data objectForKey:kSensorDataMaterialKey] intValue];
-    reading.readMC = (long)[[data objectForKey:kSensorDataMCKey] intValue];
+
     [[DataManager sharedInstance] addReadingToDatabase:reading];
 }
 

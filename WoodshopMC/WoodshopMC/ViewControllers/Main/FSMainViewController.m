@@ -9,6 +9,8 @@
 #import "FSMainViewController.h"
 #import "FSRecordViewController.h"
 #import "GlobalData.h"
+#import "Global.h"
+#import "CommonMethods.h"
 
 @interface FSMainViewController ()
 
@@ -126,7 +128,8 @@ const int scanDelay = 5;
     SEL aSelector = NSSelectorFromString(@"startScan");
     [self.scanManager stopScan];
     
-    [self.scanManager performSelector:aSelector withObject:nil afterDelay:scanDelay];
+    //[self.scanManager performSelector:aSelector withObject:nil afterDelay:scanDelay];
+    [self.scanManager performSelector:aSelector withObject:nil afterDelay:0.1];
     NSLog(@"FloorSmart:scanManager.didFindSensor");
     
     GlobalData *globalData = [GlobalData sharedData];
@@ -141,7 +144,7 @@ const int scanDelay = 5;
         recordVC = NC.viewControllers.firstObject;
         if (recordVC)
         {
-            [recordVC saveNewData:sensorData];
+            [recordVC saveNewData:[self readingFromData:sensorData]];
             [recordVC showReadingView];
         }
     }
@@ -151,11 +154,57 @@ const int scanDelay = 5;
 {
     SEL aSelector = NSSelectorFromString(@"startScan");
     [self.scanManager stopScan];
+    //[self.scanManager performSelector:aSelector withObject:nil afterDelay:scanDelay];
     [self.scanManager performSelector:aSelector withObject:nil afterDelay:scanDelay];
     NSLog(@"FloorSmart:scanManager.didFindThirdPackage");
     
 }
 
 
+- (BOOL)isSameAsBefore:(NSDictionary *)beforeData withData:(NSDictionary *)sensorData
+{
+    if (beforeData == nil)
+    {
+        if (sensorData == nil)
+            return YES;
+        else
+            return NO;
+    }
+    else if (sensorData == nil)
+        return NO;
+    
+    FSReading *readingBefore = [self readingFromData:beforeData];
+    FSReading *readingNew = [self readingFromData:sensorData];
+    if (readingBefore.readMC == readingNew.readMC &&
+        readingBefore.readMaterial == readingNew.readMaterial &&
+        readingBefore.readGravity == readingNew.readGravity &&
+        readingBefore.readDepth == readingNew.readDepth &&
+        readingBefore.readBattery == readingNew.readBattery &&
+        readingBefore.readTemp == readingNew.readTemp &&
+        readingBefore.readRH == readingBefore.readRH)
+        return YES;
+    return NO;
+}
+
+- (FSReading *)readingFromData:(NSDictionary *)data
+{
+    FSReading *reading = [[FSReading alloc] init];
+    reading.readID = 0;
+    
+    reading.readLocProductID = 0;
+    
+    reading.readTimestamp = [CommonMethods str2date:[data objectForKey:kSensorDataReadingTimestampKey] withFormat:DATETIME_FORMAT];
+    reading.readUuid = [data objectForKey:kSensorDataUuidKey];
+    reading.readRH = (long)[[data objectForKey:kSensorDataRHKey] intValue];
+    reading.readConvRH = (double)[[data objectForKey:kSensorDataConvRHKey] floatValue];
+    reading.readTemp = (long)[[data objectForKey:kSensorDataTemperatureKey] intValue];
+    reading.readConvTemp = (double)[[data objectForKey:kSensorDataConvTempKey] floatValue];
+    reading.readBattery = (long)[[data objectForKey:kSensorDataBatteryKey] intValue];
+    reading.readDepth = (long)[[data objectForKey:kSensorDataDepthKey] intValue];
+    reading.readGravity = (long)[[data objectForKey:kSensorDataGravityKey] intValue];
+    reading.readMaterial = (long)[[data objectForKey:kSensorDataMaterialKey] intValue];
+    reading.readMC = (long)[[data objectForKey:kSensorDataMCKey] intValue];
+    return reading;
+}
 
 @end

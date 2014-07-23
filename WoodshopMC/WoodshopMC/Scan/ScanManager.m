@@ -10,7 +10,10 @@
 
 static const int kPackageID = 0xDEB93391;
 
-@interface ScanManager ()
+@interface ScanManager () {
+    NSDictionary *beforeData;
+    NSTimeInterval mLastTakingTime;
+}
 
 @property (nonatomic, retain) CBCentralManager *bluetoothCentralManager;
 
@@ -35,28 +38,39 @@ static const int kPackageID = 0xDEB93391;
         _bluetoothCentralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
         
         NSLog(@"bluetooth - centeral manager inited!");
+        
+        beforeData = nil;
+        mLastTakingTime = -1;
+        
     }
-
+    
     return self;
 }
 
 - (void)startScan {
+    
+    NSMutableArray *uuids = [[NSMutableArray alloc] initWithObjects:[CBUUID UUIDWithString:@"9133b9de-5f86-6938-6401-320201040000"], nil];
+    [[self bluetoothCentralManager] scanForPeripheralsWithServices:nil
+                                                           options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @YES}];
     /*
-    [[self bluetoothCentralManager] scanForPeripheralsWithServices:nil
-                                                           options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @NO}];
+     [[self bluetoothCentralManager] scanForPeripheralsWithServices:nil
+     options:nil];
      */
-    [[self bluetoothCentralManager] scanForPeripheralsWithServices:nil
-                                                           options:nil];
-
+    
     if ([[self delegate] respondsToSelector:@selector(scanManagerDidStartScanning:)]) {
         [[self delegate] scanManagerDidStartScanning:self];
         NSLog(@"Started scan");
     }
-
+    
 }
 
 - (void)stopScan {
-    [[self bluetoothCentralManager] stopScan];
+    if (self.bluetoothCentralManager == nil)
+    {
+        NSLog(@"bluetoothCentralManager == nil");
+        return;
+    }
+    [self.bluetoothCentralManager stopScan];
     NSLog(@"Stopped scan");
 }
 
@@ -64,16 +78,16 @@ static const int kPackageID = 0xDEB93391;
     [self stopScan];
     [self startScan];
     NSLog(@"Restarted scan");
-
+    
 }
 
 #pragma mark - Bluetooth
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-
+    
     NSString *stateDescription;
     GlobalData *globalData = [GlobalData sharedData];
-
+    
     switch ([central state]) {
         case CBCentralManagerStateResetting:
             stateDescription = [NSString stringWithFormat:@"CBCentralManagerStateResetting %d ", central.state];
@@ -105,14 +119,14 @@ static const int kPackageID = 0xDEB93391;
             stateDescription = [NSString stringWithFormat:@"CBCentralManager Undefined %d ", central.state];
             break;
     }
-
+    
     NSLog(@"centralManagerDidUpdateState:[%@]",stateDescription);
-
+    
 #ifdef TESTFLIGHT_ENABLED
     [TestFlight passCheckpoint:[NSString stringWithFormat:@"FloorSmart:centralManagerDidUpdateState:%@",
                                 stateDescription]];
 #endif
-
+    
 }
 
 - (void)centralManager:(CBCentralManager *)central
@@ -122,25 +136,27 @@ static const int kPackageID = 0xDEB93391;
 {
     NSLog(@"%@",[NSString stringWithFormat:@"FloorSmart:didDiscoverPeripheral:name=[%@]",
                  peripheral.name]);
-
-
-
+    
+    
     NSString *name = [advertisementData valueForKey:CBAdvertisementDataLocalNameKey];
     NSData *manufacturedData = [advertisementData valueForKey:CBAdvertisementDataManufacturerDataKey];
     NSDictionary *serviceDict = [advertisementData valueForKey:CBAdvertisementDataServiceDataKey];
     NSArray *serviceUUIDsArray = [advertisementData valueForKey:CBAdvertisementDataServiceUUIDsKey];
     NSArray *overflowServiceUUIDsArray = [advertisementData valueForKey:CBAdvertisementDataOverflowServiceUUIDsKey];
     NSNumber *transmitPower = [advertisementData valueForKey:CBAdvertisementDataTxPowerLevelKey];
-
+    
     NSMutableData* dataToParse = nil;
     NSInteger offset = 0;
     NSDictionary *sensorData;
     
     /* for test sensordataparser
-    NSArray* uuidsArray = advertisementData[CBAdvertisementDataServiceUUIDsKey];
-    manufacturedData = [[uuidsArray firstObject] data];
+     NSArray* uuidsArray = advertisementData[CBAdvertisementDataServiceUUIDsKey];
+     manufacturedData = [[uuidsArray firstObject] data];
      */
-
+    
+    NSTimeInterval currTime = [[NSDate date] timeIntervalSince1970];
+    
+    
     if (manufacturedData) {
         
         NSString * dataToParseString = @"";
@@ -158,13 +174,14 @@ static const int kPackageID = 0xDEB93391;
             [[self delegate] scanManager:self didFindThirdPackage:manufacturedData];
             return;
         }
-
+        
         dataToParse = (NSMutableData*)manufacturedData;
         offset = 0;
-
-       
+        
+        
         SensorReadingParser *parser = [[SensorReadingParser alloc] init];
         sensorData = [parser parseData:dataToParse  withOffset:offset];
+        
         
     }
     else {
@@ -172,7 +189,7 @@ static const int kPackageID = 0xDEB93391;
         ///uuid2(which is 16-bit uuid) contains last byte of S2T field and battery level byte. This is where specification order is violated.
         ///Last 3 uuids contains full Serial number order.
         NSArray* uuidsArray = advertisementData[CBAdvertisementDataServiceUUIDsKey];
-
+        
         CBUUID* uuid1 = [uuidsArray firstObject];
         
         NSString *outputString = @"";
@@ -182,58 +199,37 @@ static const int kPackageID = 0xDEB93391;
             outputString = [outputString stringByAppendingFormat:@"%02X ",c];
         }
         NSLog(@"Debug output sensor data(uuid1): %@",outputString);
-
         
-#if false
-        UInt32 packageID = kPackageID;
-        ///uuid comes right after flag, length and dataType bytes.
-        if(![[[uuid1 data] subdataWithRange:NSMakeRange(5, 4)] isEqualToData:
-             [NSData dataWithBytes:&packageID length:4]])
-        {
-            NSLog(@"Third party package was received.");
-            [[self delegate] scanManager:self didFindThirdPackage:manufacturedData];
-            return;
-        }
         
-        CBUUID* uuid2 = uuidsArray[1];
-        CBUUID* uuid3 = uuidsArray[2];
-        CBUUID* uuid4 = uuidsArray[3];
-        CBUUID* uuid5 = uuidsArray[4];
-
-        NSData* firstPackage = [uuid1 data];
-        NSData* secondPackage = [uuid2 data];
-        NSMutableData* serialData = [NSMutableData dataWithData:[uuid3 data]];
-        [serialData appendData:[uuid4 data]];
-        [serialData appendData:[uuid5 data]];
-
-        dataToParse = [NSMutableData dataWithData:firstPackage];
-        [dataToParse appendData:[secondPackage subdataWithRange:NSMakeRange(0, 1)]];
-        [dataToParse appendData:serialData];
-        [dataToParse appendData:[secondPackage subdataWithRange:NSMakeRange(1, 1)]];
-        offset = 5;
-#else
         UInt32 packageID = kPackageID;
         ///uuid comes right after flag, length and dataType bytes.
         if([[uuid1 data] length] < 4 || ![[[uuid1 data] subdataWithRange:NSMakeRange(0, 4)] isEqualToData:
-             [NSData dataWithBytes:&packageID length:4]])
+                                          [NSData dataWithBytes:&packageID length:4]])
         {
             NSLog(@"Third party package was received.");
-            [[self delegate] scanManager:self didFindThirdPackage:manufacturedData];
+            [[self delegate] scanManager:self didFindThirdPackage:[uuid1 data]];
             return;
         }
         
         NSData* firstPackage = [uuid1 data];
         dataToParse = [NSMutableData dataWithData:firstPackage];
         offset = 0;
-#endif
-
+        
+        
         EmulatorReadingParser *parser = [[EmulatorReadingParser alloc] init];
         sensorData = [parser parseData:dataToParse  withOffset:offset];
     }
-
-
-    [[self delegate] scanManager:self
-                   didFindSensor:sensorData];
+    
+    if ((mLastTakingTime == -1 || currTime - mLastTakingTime >= 5) ||
+        [[self delegate] isSameAsBefore:beforeData withData:sensorData] == NO)
+    {
+        [[self delegate] scanManager:self
+                       didFindSensor:sensorData];
+        beforeData = sensorData;
+        mLastTakingTime = currTime;
+    }
+    
+    
 }
 
 - (void)showAlertWithTitle:(NSString *)title description:(NSString *)description {

@@ -14,6 +14,7 @@
 @required
 - (void)scanManager:(ScanManager*)scanManager didFindSensor:(NSDictionary*)sensorData;
 - (void)scanManager:(ScanManager*)scanManager didFindThirdPackage:(NSData*)thirdData;
+- (BOOL)isSameAsBefore:(NSDictionary *)beforeData withData:(NSDictionary *)sensorData;
 
 @optional
 - (void)scanManagerDidStartScanning:(ScanManager*)scanManager;
